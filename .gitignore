@@ -1,0 +1,19 @@
+node_modules/
+.next/
+out/
+.npm-cache/
+.npmrc
+*.log
+*.tsbuildinfo
+qa-*.png
+work/
+AGENTS.md
+design-qa.md
+
+# Superseded local image iterations; active production assets remain tracked.
+public/frontier-hero.png
+public/frontier-hero-gold-rush.png
+public/frontier-hero-bay-geography.png
+public/frontier-hero-headlands-view.png
+public/frontier-hero-headlands-view-v2.png
+public/ryan-pollock-editorial.png
