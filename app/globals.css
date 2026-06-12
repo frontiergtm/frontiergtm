@@ -326,20 +326,21 @@ footer p { margin: 0; }
   transform-origin: center 44%; will-change: transform;
 }
 .motion-trail-light::after {
-  position: absolute; inset: 0; content: ""; background: url("/frontier-hero-trail-overlay.png") center / cover no-repeat;
-  opacity: 0; mix-blend-mode: screen; filter: brightness(2.1) saturate(1.25) drop-shadow(0 0 9px rgba(255,224,130,.95));
-  -webkit-mask-image: linear-gradient(145deg, transparent 37%, #000 47%, #000 53%, transparent 63%);
-  -webkit-mask-size: 240% 240%;
-  -webkit-mask-position: 100% 100%;
-  mask-image: linear-gradient(145deg, transparent 37%, #000 47%, #000 53%, transparent 63%);
-  mask-size: 240% 240%;
-  mask-position: 100% 100%;
-  animation: motion-trail-sweep 5.4s cubic-bezier(.4,0,.2,1) infinite;
+  position: absolute; inset: 0; content: ""; background: url("/frontier-hero-trail-overlay-v6.png") center / cover no-repeat;
+  opacity: .42; mix-blend-mode: screen; filter: brightness(1.7) saturate(1.2) drop-shadow(0 0 7px rgba(255,224,130,.72));
+  -webkit-mask-image: linear-gradient(145deg, transparent 33%, rgba(0,0,0,.28) 42%, #000 48%, #000 56%, rgba(0,0,0,.28) 63%, transparent 72%);
+  -webkit-mask-size: 220% 220%;
+  -webkit-mask-position: 110% 110%;
+  mask-image: linear-gradient(145deg, transparent 33%, rgba(0,0,0,.28) 42%, #000 48%, #000 56%, rgba(0,0,0,.28) 63%, transparent 72%);
+  mask-size: 220% 220%;
+  mask-position: 110% 110%;
+  will-change: opacity, filter, mask-position;
+  animation: motion-trail-sweep 4.6s linear infinite, motion-trail-highlight 2.3s ease-in-out infinite;
 }
 .motion-trail-image {
-  object-fit: cover; object-position: center; opacity: .11; mix-blend-mode: screen;
-  filter: brightness(1.18) saturate(1.1) drop-shadow(0 0 3px rgba(255,206,82,.5));
-  animation: motion-trail-breathe 4.8s ease-in-out infinite;
+  object-fit: cover; object-position: center; opacity: .14; mix-blend-mode: screen;
+  filter: brightness(1.2) saturate(1.1) drop-shadow(0 0 3px rgba(255,206,82,.48));
+  animation: motion-trail-breathe 3.2s ease-in-out infinite;
 }
 .motion-hero-scrim {
   background:
@@ -473,14 +474,16 @@ footer p { margin: 0; }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes motion-trail-breathe {
-  0%, 100% { opacity: .08; filter: brightness(1.08) saturate(1.06) drop-shadow(0 0 2px rgba(255,206,82,.38)); }
-  50% { opacity: .18; filter: brightness(1.34) saturate(1.14) drop-shadow(0 0 5px rgba(255,220,111,.7)); }
+  0%, 100% { opacity: .12; filter: brightness(1.12) saturate(1.06) drop-shadow(0 0 2px rgba(255,206,82,.34)); }
+  50% { opacity: .25; filter: brightness(1.42) saturate(1.16) drop-shadow(0 0 6px rgba(255,220,111,.74)); }
 }
 @keyframes motion-trail-sweep {
-  0%, 12% { opacity: 0; -webkit-mask-position: 100% 100%; mask-position: 100% 100%; }
-  22% { opacity: .72; }
-  70% { opacity: .82; }
-  82%, 100% { opacity: 0; -webkit-mask-position: 0 0; mask-position: 0 0; }
+  from { -webkit-mask-position: 110% 110%; mask-position: 110% 110%; }
+  to { -webkit-mask-position: -10% -10%; mask-position: -10% -10%; }
+}
+@keyframes motion-trail-highlight {
+  0%, 100% { opacity: .42; filter: brightness(1.7) saturate(1.18) drop-shadow(0 0 7px rgba(255,224,130,.7)); }
+  50% { opacity: .88; filter: brightness(2.35) saturate(1.32) drop-shadow(0 0 12px rgba(255,231,157,.96)); }
 }
 @keyframes motion-breathe {
   0%,100% { opacity: .45; filter: blur(18px); }
