@@ -5,6 +5,7 @@ out/
 .npmrc
 *.log
 *.tsbuildinfo
+.env*.local
 qa-*.png
 work/
 AGENTS.md

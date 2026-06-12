@@ -1,7 +1,7 @@
 import sharp from "sharp";
 
-const input = "public/frontier-hero-headlands-view-v6.png";
-const output = "public/frontier-hero-trail-overlay-v6.png";
+const input = "public/frontier-hero-headlands-view-v8.png";
+const output = "public/frontier-hero-trail-overlay-v8.png";
 
 const { data, info } = await sharp(input)
   .ensureAlpha()

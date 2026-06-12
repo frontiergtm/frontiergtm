@@ -35,7 +35,7 @@ The Next.js config uses `output: "export"`, so the production build is emitted a
 - Repeated services, audiences, engagements, proof points, and navigation: `content/site.ts`
 - Brand tokens and responsive styles: `app/globals.css`
 - Header/mobile navigation: `components/header.tsx`
-- Active hero image: `public/frontier-hero-headlands-view-v6.png`
+- Active hero image: `public/frontier-hero-headlands-view-v8.png`
 - Founder headshot: `public/ryan-pollock-headshot.png`
 - Employer marks: `public/logos/`
 

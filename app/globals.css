@@ -326,7 +326,7 @@ footer p { margin: 0; }
   transform-origin: center 44%; will-change: transform;
 }
 .motion-trail-light::after {
-  position: absolute; inset: 0; content: ""; background: url("/frontier-hero-trail-overlay-v6.png") center / cover no-repeat;
+  position: absolute; inset: 0; content: ""; background: url("/frontier-hero-trail-overlay-v8.png") center / cover no-repeat;
   opacity: .42; mix-blend-mode: screen; filter: brightness(1.7) saturate(1.2) drop-shadow(0 0 7px rgba(255,224,130,.72));
   -webkit-mask-image: linear-gradient(145deg, transparent 33%, rgba(0,0,0,.28) 42%, #000 48%, #000 56%, rgba(0,0,0,.28) 63%, transparent 72%);
   -webkit-mask-size: 220% 220%;
@@ -512,10 +512,10 @@ footer p { margin: 0; }
   .motion-has-scrolled .motion-page > header { background: transparent; box-shadow: none; backdrop-filter: none; }
   .motion-hero { height: 860px; }
   .motion-hero-media { inset: -3%; }
-  .motion-hero-image { object-position: 13% center; transform: translate3d(0,calc(var(--motion-hero-progress) * 34px),0) scale(1.08); }
+  .motion-hero-image { object-position: 22% center; transform: translate3d(0,calc(var(--motion-hero-progress) * 34px),0) scale(1.08); }
   .motion-trail-light { transform: translate3d(0,calc(var(--motion-hero-progress) * 34px),0) scale(1.08); }
-  .motion-trail-light::after { background-position: 13% center; }
-  .motion-trail-image { object-position: 13% center; }
+  .motion-trail-light::after { background-position: 22% center; }
+  .motion-trail-image { object-position: 22% center; }
   .motion-hero-eyebrow { margin-bottom: 13px; }
   .motion-scroll-cue { display: none; }
   .motion-services { padding-top: 58px; }

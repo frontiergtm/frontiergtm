@@ -24,7 +24,7 @@ export default function MotionHome() {
         <div className="motion-hero-media" aria-hidden="true">
           <Image
             className="hero-image motion-hero-image"
-            src="/frontier-hero-headlands-view-v6.png"
+            src="/frontier-hero-headlands-view-v8.png"
             alt=""
             fill
             priority
@@ -33,7 +33,7 @@ export default function MotionHome() {
           <div className="motion-trail-light" aria-hidden="true">
             <Image
               className="motion-trail-image"
-              src="/frontier-hero-trail-overlay-v6.png"
+              src="/frontier-hero-trail-overlay-v8.png"
               alt=""
               fill
               sizes="100vw"
