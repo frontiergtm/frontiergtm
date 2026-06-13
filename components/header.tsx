@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { List, X } from "@phosphor-icons/react";
 import { navItems } from "@/content/site";
-import { Icon } from "@/components/icons";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -18,13 +18,8 @@ export function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-50 border-b border-white/10">
       <div className="mx-auto flex h-20 max-w-[1180px] items-center justify-between px-5 sm:px-6">
-        <a className="group flex items-center gap-2.5" href="#top" aria-label="FrontierGTM home">
-          <span className="grid size-10 place-items-center text-gold">
-            <Icon name="mountains" size={34} weight="light" />
-          </span>
-          <span className="text-[17px] font-semibold tracking-[-0.02em] text-white sm:text-lg">
-            Frontier<span className="text-gold">GTM</span>
-          </span>
+        <a className="brand-wordmark" href="#top" aria-label="FrontierGTM home">
+          <Image src="/frontiergtm-wordmark.svg" alt="FrontierGTM" width={520} height={96} priority />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
@@ -58,7 +53,7 @@ export function Header() {
         <nav className="mx-auto flex max-w-lg flex-col" aria-label="Mobile navigation">
           {navItems.map((item) => (
             <a
-              className="mobile-nav-link border-b border-white/10 py-5 text-2xl font-medium"
+              className="mobile-nav-link border-b border-white/10 py-5 text-2xl font-normal tracking-[-0.02em]"
               href={item.href}
               key={item.href}
               onClick={() => setOpen(false)}
