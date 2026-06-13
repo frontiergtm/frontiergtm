@@ -40,8 +40,11 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 
 .wide-shell, .compact-shell { width: min(100% - 48px, 1180px); margin: 0 auto; }
 .compact-shell { width: min(100% - 48px, 1100px); }
-.brand-wordmark { display: block; width: 184px; line-height: 0; }
-.brand-wordmark img { display: block; width: 100%; height: auto; }
+.brand-wordmark { display: block; width: 225px; line-height: 0; }
+.brand-wordmark img {
+  display: block; width: 100%; height: auto;
+  filter: drop-shadow(0 3px 8px rgba(5,24,17,.3));
+}
 
 .nav-link {
   position: relative; color: rgba(255,255,255,.9); font-size: 15px; font-weight: 480; letter-spacing: -.012em;
@@ -263,7 +266,7 @@ footer p { margin: 0; }
 }
 
 @media (max-width: 720px) {
-  .brand-wordmark { width: 174px; }
+  .brand-wordmark { width: 190px; }
   .wide-shell, .compact-shell, .hero-inner { width: min(100% - 36px, 1180px); }
   .hero { height: 820px; }
   .hero-image { object-position: 13% center; }
