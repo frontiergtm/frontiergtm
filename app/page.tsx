@@ -1,1 +1,5 @@
-export { default } from "./motion/page";
+import { FrontierHomepage } from "@/components/frontier-homepage";
+
+export default function HomePage() {
+  return <FrontierHomepage variant="capacity" />;
+}
