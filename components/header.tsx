@@ -19,7 +19,7 @@ export function Header() {
     <header className="absolute inset-x-0 top-0 z-50 border-b border-white/10">
       <div className="mx-auto flex h-20 max-w-[1180px] items-center justify-between px-5 sm:px-6">
         <a className="brand-wordmark" href="#top" aria-label="FrontierGTM home">
-          <Image src="/frontiergtm-logo-header.png" alt="FrontierGTM" width={1636} height={429} priority />
+          <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
