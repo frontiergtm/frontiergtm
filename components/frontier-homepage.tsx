@@ -20,7 +20,7 @@ const pageCopy = {
     heroEyebrow: "Senior strategy and execution for bold AI builders",
     heroSubhead:
       "FrontierGTM helps AI infrastructure, cloud, and developer platform companies sharpen their story and accelerate execution now — whether they are building a marketing function, strengthening an existing team, or hiring for what comes next.",
-    problemHeadingBefore: "The gold rush is on, and your GTM ",
+    problemHeadingBefore: "The AI gold rush is on, and your GTM ",
     problemHeadingAccent: "cannot wait",
     problemHeadingAfter: ".",
     problemParagraphs: [
