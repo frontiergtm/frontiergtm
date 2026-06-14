@@ -198,6 +198,15 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 }
 .engagement-card h3 { margin: 0; color: white; font-size: 16px; font-weight: 500; letter-spacing: -.018em; }
 .engagement-card p { margin: 8px 0 0; color: #dce3d8; font-size: 12px; font-weight: 400; line-height: 1.6; }
+.engagement-conversion-note {
+  display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 34px; align-items: start;
+  max-width: 920px; margin: 34px auto 0; border-top: 1px solid rgba(217,165,54,.42); padding: 25px 8px 0;
+}
+.engagement-conversion-label {
+  margin: 3px 0 0; color: #d9a536; font-size: 9px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+}
+.engagement-conversion-note h3 { margin: 0; color: white; font-size: 17px; font-weight: 500; letter-spacing: -.018em; }
+.engagement-conversion-note div > p { max-width: 650px; margin: 8px 0 0; color: #cfdcd2; font-size: 12px; line-height: 1.65; }
 
 .about-section { position: relative; overflow: hidden; background: #f8f6ef; }
 .about-landscape {
@@ -303,6 +312,8 @@ footer p { margin: 0; }
   .audience-grid { grid-template-columns: repeat(2,1fr); }
   .engagements-section { padding: 50px 0; }
   .engagement-grid { grid-template-columns: 1fr; gap: 13px; }
+  .engagement-conversion-note { grid-template-columns: 1fr; gap: 9px; margin-top: 28px; padding: 22px 2px 0; }
+  .engagement-conversion-note h3 { font-size: 16px; line-height: 1.35; }
   .about-layout { grid-template-columns: 1fr; gap: 38px; padding: 56px 0 62px; }
   .about-portrait { width: min(100%, 390px); margin: 0 auto; }
   .about-content h2 { font-size: 32px; }

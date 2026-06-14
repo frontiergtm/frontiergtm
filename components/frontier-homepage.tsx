@@ -30,6 +30,11 @@ const pageCopy = {
     audienceLead: "Built for technical founders, lean marketing teams, and companies in motion.",
     audienceBody: "Bring FrontierGTM in before the team, alongside the team, or while you recruit.",
     engagementSubhead: "Senior GTM capacity without the hiring delay.",
+    conversionNote: {
+      label: "A path that can grow",
+      heading: "Fractional first. Full-time when the fit is exceptional.",
+      body: "Start with a focused or fractional engagement and see the work in action. If the fit proves exceptional on both sides, Ryan is open to the relationship evolving into a full-time marketing leadership role.",
+    },
     ctaHeading: ["Need senior GTM capacity", "right now?"],
     ctaBody:
       "Keep launches, messaging, content, and demand moving while you build the long-term team — or give the team you already have more experienced capacity.",
@@ -48,6 +53,7 @@ const pageCopy = {
     audienceLead: "Built for technical founders and early GTM teams.",
     audienceBody: "We work with companies building complex products in fast-moving markets, including:",
     engagementSubhead: "Senior marketing help without the full-time hire.",
+    conversionNote: null,
     ctaHeading: ["Need senior marketing help", "before you hire the team?"],
     ctaBody:
       "FrontierGTM helps technical founders turn complex products into clear messaging, useful content, qualified demand, and repeatable GTM execution.",
@@ -221,6 +227,15 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                 </article>
               ))}
             </div>
+            {copy.conversionNote && (
+              <aside className="engagement-conversion-note motion-reveal" aria-labelledby="conversion-note-title">
+                <p className="engagement-conversion-label">{copy.conversionNote.label}</p>
+                <div>
+                  <h3 id="conversion-note-title">{copy.conversionNote.heading}</h3>
+                  <p>{copy.conversionNote.body}</p>
+                </div>
+              </aside>
+            )}
           </div>
         </section>
 
