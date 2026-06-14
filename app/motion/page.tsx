@@ -45,7 +45,7 @@ export default function MotionHome() {
         <div className="motion-hero-horizon" aria-hidden="true" />
         <div className="hero-inner motion-hero-inner">
           <div className="hero-copy motion-hero-copy">
-            <p className="motion-hero-eyebrow">Strategy for what comes next</p>
+            <p className="motion-hero-eyebrow">The AI gold rush needs a map</p>
             <h1 id="motion-hero-title" className="hero-title">
               <span className="hero-title-line hero-title-lead">GTM strategy for</span>
               <span className="hero-title-line hero-title-focus">
