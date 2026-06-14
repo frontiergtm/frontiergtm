@@ -17,27 +17,27 @@ export type HomepageVariant = "capacity" | "early-startups";
 
 const pageCopy = {
   capacity: {
-    heroEyebrow: "Senior GTM capacity, right when you need it",
+    heroEyebrow: "Senior strategy and execution for bold AI builders",
     heroSubhead:
       "FrontierGTM helps AI infrastructure, cloud, and developer platform companies sharpen their story and accelerate execution now — whether they are building a marketing function, strengthening an existing team, or hiring for what comes next.",
-    problemHeadingBefore: "Your GTM priorities cannot ",
-    problemHeadingAccent: "wait",
-    problemHeadingAfter: " for the perfect hire.",
+    problemHeadingBefore: "The gold rush is on, and your GTM ",
+    problemHeadingAccent: "cannot wait",
+    problemHeadingAfter: ".",
     problemParagraphs: [
-      "Recruiting and onboarding can take months. Product launches, category shifts, pipeline goals, and sales needs keep moving in the meantime.",
-      "FrontierGTM adds senior judgment and hands-on execution immediately — working with founders or alongside existing teams — while helping clarify what the business should eventually hire for.",
+      "AI markets move quickly. Product launches, category shifts, pipeline goals, and sales needs keep moving with them.",
+      "FrontierGTM brings senior judgment and hands-on execution to the moments that matter — working directly with founders or alongside existing teams to sharpen the story and turn strategy into momentum.",
     ],
     audienceLead: "Built for technical founders, lean marketing teams, and companies in motion.",
-    audienceBody: "Bring FrontierGTM in before the team, alongside the team, or while you recruit.",
-    engagementSubhead: "Senior GTM capacity without the hiring delay.",
+    audienceBody: "Bring FrontierGTM in to lead a critical initiative, strengthen the team, or keep GTM moving through a period of change.",
+    engagementSubhead: "Senior strategy and hands-on execution, shaped to the moment.",
     conversionNote: {
       label: "A path that can grow",
       heading: "Fractional first. Full-time when the fit is exceptional.",
       body: "Start with a focused or fractional engagement and see the work in action. If the fit proves exceptional on both sides, Ryan is open to the relationship evolving into a full-time marketing leadership role.",
     },
-    ctaHeading: ["Need senior GTM capacity", "right now?"],
+    ctaHeading: ["Ready to move your GTM", "forward?"],
     ctaBody:
-      "Keep launches, messaging, content, and demand moving while you build the long-term team — or give the team you already have more experienced capacity.",
+      "Turn complex products into sharper positioning, stronger launches, useful content, and repeatable demand — with senior judgment and hands-on execution from day one.",
   },
   "early-startups": {
     heroEyebrow: "The AI gold rush needs a map",
