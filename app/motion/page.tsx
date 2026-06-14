@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowRight, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+import { ArrowDown, ArrowRight, EnvelopeSimple, LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import { Header } from "@/components/header";
 import { Icon, IconName } from "@/components/icons";
 import { MotionEffects } from "@/components/motion-effects";
@@ -255,7 +255,18 @@ export default function MotionHome() {
 
       <footer>
         <p>© {new Date().getFullYear()} FrontierGTM</p>
-        <a href="mailto:hello@frontiergtm.com">hello@frontiergtm.com</a>
+        <div className="footer-links">
+          <a href="mailto:hello@frontiergtm.com">hello@frontiergtm.com</a>
+          <a
+            className="footer-social-link"
+            href="https://www.linkedin.com/company/frontiergtm/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="FrontierGTM on LinkedIn"
+          >
+            <LinkedinLogo size={18} weight="fill" aria-hidden="true" />
+          </a>
+        </div>
       </footer>
     </main>
   );

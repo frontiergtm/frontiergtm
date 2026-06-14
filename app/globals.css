@@ -242,8 +242,13 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .cta-layout p { max-width: 650px; margin: 13px 0 0; color: #dce3d8; font-size: 13px; line-height: 1.6; }
 .cta-actions { margin: 0; }
 
-footer { display: flex; justify-content: space-between; background: #0f2d21; padding: 19px max(24px, calc((100% - 1100px)/2)); color: rgba(255,255,255,.5); font-size: 11px; }
+footer { display: flex; align-items: center; justify-content: space-between; background: #0f2d21; padding: 19px max(24px, calc((100% - 1100px)/2)); color: rgba(255,255,255,.5); font-size: 11px; }
 footer p { margin: 0; }
+.footer-links { display: flex; align-items: center; gap: 16px; }
+.footer-links > a { transition: color 180ms ease, transform 180ms ease; }
+.footer-links > a:hover { color: #efc35d; }
+.footer-social-link { display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,.68); }
+.footer-social-link:hover { transform: translateY(-1px); }
 
 @keyframes glow-pulse {
   0%,100% { opacity: .5; transform: scale(.98); }
@@ -306,7 +311,7 @@ footer p { margin: 0; }
   .proof-row p { font-size: 13px; }
   .cta-layout { grid-template-columns: 1fr; gap: 25px; padding: 50px 0; }
   .cta-section, .cta-layout { min-height: 360px; }
-  footer { flex-direction: column; gap: 7px; }
+  footer { align-items: flex-start; flex-direction: column; gap: 10px; }
 }
 
 /* Narrative motion system used by the canonical homepage and legacy /motion route. */
