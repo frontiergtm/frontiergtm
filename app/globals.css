@@ -262,6 +262,8 @@ footer p { margin: 0; }
 .footer-links > a:hover { color: #efc35d; }
 .footer-social-link { display: inline-flex; align-items: center; justify-content: center; color: rgba(255,255,255,.68); }
 .footer-social-link:hover { transform: translateY(-1px); }
+.footer-social-link img { display: block; width: 21px; height: 21px; opacity: .82; transition: opacity 180ms ease, filter 180ms ease; }
+.footer-social-link:hover img { opacity: 1; filter: brightness(1.35); }
 
 @keyframes glow-pulse {
   0%,100% { opacity: .5; transform: scale(.98); }

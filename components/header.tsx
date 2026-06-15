@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { List, X } from "@phosphor-icons/react";
+import { consultationMailto } from "@/content/contact";
 import { navItems } from "@/content/site";
 
 export function Header() {
@@ -30,7 +31,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a className="button button-small header-cta" href="#contact">
+        <a className="button button-small header-cta" href={consultationMailto}>
           Book a Call
         </a>
 
@@ -61,7 +62,7 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a className="button mt-8" href="#contact" onClick={() => setOpen(false)}>
+          <a className="button mt-8" href={consultationMailto} onClick={() => setOpen(false)}>
             Book a Call
           </a>
         </nav>

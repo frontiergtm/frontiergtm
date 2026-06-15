@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { ArrowDown, ArrowRight, EnvelopeSimple, LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowDown, ArrowRight, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
 import { Header } from "@/components/header";
 import { Icon, IconName } from "@/components/icons";
 import { MotionEffects } from "@/components/motion-effects";
+import { consultationMailto } from "@/content/contact";
 import { audiences, engagements, proofPoints, services } from "@/content/site";
 
 const experienceLogos = [
@@ -109,7 +110,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             </h1>
             <p className="hero-subhead">{copy.heroSubhead}</p>
             <div className="hero-actions">
-              <a className="button motion-button" href="#contact">Book a Call <ArrowRight size={17} weight="bold" /></a>
+              <a className="button motion-button" href={consultationMailto}>Book a Call <ArrowRight size={17} weight="bold" /></a>
               <a className="button button-secondary motion-button-secondary" href="#services">
                 See What We Help With <ArrowDown size={17} />
               </a>
@@ -320,7 +321,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               <p>{copy.ctaBody}</p>
             </div>
             <div className="cta-actions">
-              <a className="button motion-button" href="mailto:hello@frontiergtm.com?subject=FrontierGTM%20intro">
+              <a className="button motion-button" href={consultationMailto}>
                 Book a Call <ArrowRight size={17} weight="bold" />
               </a>
               <a className="button button-secondary motion-button-secondary" href="mailto:hello@frontiergtm.com">
@@ -342,7 +343,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             rel="noreferrer"
             aria-label="FrontierGTM on LinkedIn"
           >
-            <LinkedinLogo size={18} weight="fill" aria-hidden="true" />
+            <Image src="/linkedin.svg" alt="" width={21} height={21} aria-hidden="true" />
           </a>
         </div>
       </footer>
