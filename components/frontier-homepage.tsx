@@ -20,7 +20,7 @@ const pageCopy = {
   capacity: {
     heroEyebrow: "Senior strategy and execution for bold AI builders",
     heroSubhead:
-      "FrontierGTM helps AI agent, infrastructure, and developer platform companies sharpen their story and accelerate execution now — whether they are building a marketing function, strengthening an existing team, or hiring for what comes next.",
+      "FrontierGTM helps technical founders explain what they do, reach the right buyers, and build AI-native marketing engines.",
     problemHeadingStacked: true,
     problemParagraphs: [
       "AI markets move quickly. Product launches, category shifts, pipeline goals, and sales needs keep moving with them.",
