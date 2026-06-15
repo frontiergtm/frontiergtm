@@ -31,7 +31,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a className="button button-small header-cta" href={consultationMailto}>
+        <a className="button button-small header-cta" href={consultationMailto} target="_blank" rel="noopener noreferrer">
           Book a Call
         </a>
 
@@ -62,7 +62,13 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a className="button mt-8" href={consultationMailto} onClick={() => setOpen(false)}>
+          <a
+            className="button mt-8"
+            href={consultationMailto}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setOpen(false)}
+          >
             Book a Call
           </a>
         </nav>

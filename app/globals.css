@@ -581,7 +581,7 @@ footer p { margin: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  *,*::before,*::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
   .motion-hero-image,
   .motion-trail-light,
   .motion-hero-copy,
@@ -596,6 +596,7 @@ footer p { margin: 0; }
   .motion-logo,
   .motion-proof { opacity: 1 !important; transform: none !important; }
   .motion-progress { display: none; }
+  .motion-scroll-cue { opacity: .65; transform: translateX(-50%); }
   .motion-trail-light::after,
   .motion-trail-image { animation: none !important; opacity: 0 !important; }
 }

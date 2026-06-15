@@ -110,7 +110,9 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             </h1>
             <p className="hero-subhead">{copy.heroSubhead}</p>
             <div className="hero-actions">
-              <a className="button motion-button" href={consultationMailto}>Book a Call <ArrowRight size={17} weight="bold" /></a>
+              <a className="button motion-button" href={consultationMailto} target="_blank" rel="noopener noreferrer">
+                Book a Call <ArrowRight size={17} weight="bold" />
+              </a>
               <a className="button button-secondary motion-button-secondary" href="#services">
                 See What We Help With <ArrowDown size={17} />
               </a>
@@ -321,7 +323,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               <p>{copy.ctaBody}</p>
             </div>
             <div className="cta-actions">
-              <a className="button motion-button" href={consultationMailto}>
+              <a className="button motion-button" href={consultationMailto} target="_blank" rel="noopener noreferrer">
                 Book a Call <ArrowRight size={17} weight="bold" />
               </a>
               <a className="button button-secondary motion-button-secondary" href="mailto:hello@frontiergtm.com">
