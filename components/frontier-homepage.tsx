@@ -19,13 +19,13 @@ const pageCopy = {
   capacity: {
     heroEyebrow: "Senior strategy and execution for bold AI builders",
     heroSubhead:
-      "FrontierGTM helps AI infrastructure, cloud, and developer platform companies sharpen their story and accelerate execution now — whether they are building a marketing function, strengthening an existing team, or hiring for what comes next.",
+      "FrontierGTM helps AI agent, infrastructure, and developer platform companies sharpen their story and accelerate execution now — whether they are building a marketing function, strengthening an existing team, or hiring for what comes next.",
     problemHeadingStacked: true,
     problemParagraphs: [
       "AI markets move quickly. Product launches, category shifts, pipeline goals, and sales needs keep moving with them.",
       "FrontierGTM brings senior judgment and hands-on execution to the moments that matter — working directly with founders or alongside existing teams to sharpen the story and turn strategy into momentum.",
     ],
-    audienceLead: "Built for technical founders, lean marketing teams, and companies in motion.",
+    audienceLead: "Built for teams creating AI agents, infrastructure, and the platforms developers build on.",
     audienceBody: "Bring FrontierGTM in to lead a critical initiative, strengthen the team, or keep GTM moving through a period of change.",
     engagementSubhead: "Senior strategy and hands-on execution, shaped to the moment.",
     conversionNote: {

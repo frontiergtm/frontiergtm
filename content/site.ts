@@ -45,11 +45,11 @@ export const services = [
 ];
 
 export const audiences = [
+  { label: "AI Agents & Agent Platforms", icon: "robot" },
   { label: "AI Infrastructure", icon: "brain" },
   { label: "Inference & Model Platforms", icon: "cpu" },
   { label: "Cloud Infrastructure", icon: "cloud" },
   { label: "Developer Tools", icon: "code" },
-  { label: "Agent Platforms", icon: "robot" },
   { label: "Data & Infrastructure Software", icon: "database" },
   { label: "High-Growth B2B Technical Products", icon: "chart" },
 ];
