@@ -20,9 +20,7 @@ const pageCopy = {
     heroEyebrow: "Senior strategy and execution for bold AI builders",
     heroSubhead:
       "FrontierGTM helps AI infrastructure, cloud, and developer platform companies sharpen their story and accelerate execution now — whether they are building a marketing function, strengthening an existing team, or hiring for what comes next.",
-    problemHeadingBefore: "The AI gold rush is on, and your GTM ",
-    problemHeadingAccent: "cannot wait",
-    problemHeadingAfter: ".",
+    problemHeadingStacked: true,
     problemParagraphs: [
       "AI markets move quickly. Product launches, category shifts, pipeline goals, and sales needs keep moving with them.",
       "FrontierGTM brings senior judgment and hands-on execution to the moments that matter — working directly with founders or alongside existing teams to sharpen the story and turn strategy into momentum.",
@@ -46,6 +44,7 @@ const pageCopy = {
     problemHeadingBefore: "Technical companies need marketing ",
     problemHeadingAccent: "before",
     problemHeadingAfter: " they have a marketing team.",
+    problemHeadingStacked: false,
     problemParagraphs: [
       "Founders know the product, the market, and the technical edge. But turning that into clear messaging, useful content, demand, sales materials, and repeatable execution is hard — especially when the category is moving fast.",
       "Most early teams do not need a bloated marketing plan. They need senior judgment, sharp messaging, and hands-on execution that helps the company look bigger and move faster.",
@@ -149,9 +148,20 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             <div className="problem-heading motion-reveal motion-reveal-left">
               <Icon name="mountains" size={58} weight="light" />
               <h2>
-                {copy.problemHeadingBefore}
-                <span>{copy.problemHeadingAccent}</span>
-                {copy.problemHeadingAfter}
+                {copy.problemHeadingStacked ? (
+                  <>
+                    The AI <span>gold</span> rush is on.
+                    <span className="problem-heading-payoff">
+                      Your time to strike is <span>now</span>.
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {copy.problemHeadingBefore}
+                    <span>{copy.problemHeadingAccent}</span>
+                    {copy.problemHeadingAfter}
+                  </>
+                )}
               </h2>
             </div>
             <div className="problem-copy motion-reveal motion-reveal-right">
