@@ -28,6 +28,12 @@ const pageCopy = {
     audienceLead: "Built for teams creating AI agents, infrastructure, and the platforms developers build on.",
     audienceBody: "Bring FrontierGTM in to lead a critical initiative, strengthen the team, or keep GTM moving through a period of change.",
     engagementSubhead: "Senior strategy and hands-on execution, shaped to the moment.",
+    introConsultation: {
+      eyebrow: "45 minutes · complimentary",
+      title: "Intro Consultation",
+      description:
+        "A practical first conversation about your product, GTM priorities, and where focused senior help could create the most leverage.",
+    },
     conversionNote: {
       label: "A path that can grow",
       heading: "Fractional first. Full-time when the fit is exceptional.",
@@ -52,6 +58,7 @@ const pageCopy = {
     audienceLead: "Built for technical founders and early GTM teams.",
     audienceBody: "We work with companies building complex products in fast-moving markets, including:",
     engagementSubhead: "Senior marketing help without the full-time hire.",
+    introConsultation: null,
     conversionNote: null,
     ctaHeading: ["Need senior marketing help", "before you hire the team?"],
     ctaBody:
@@ -221,12 +228,25 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               <h2>How Engagements Work</h2>
               <p>{copy.engagementSubhead}</p>
             </div>
-            <div className="engagement-grid">
+            <div className={`engagement-grid${copy.introConsultation ? " engagement-grid-four" : ""}`}>
+              {copy.introConsultation && (
+                <article
+                  className="engagement-card engagement-card-intro motion-engagement-card motion-reveal motion-tilt"
+                  style={{ "--motion-index": 0 } as React.CSSProperties}
+                >
+                  <Icon name="chats" size={39} weight="light" />
+                  <div>
+                    <p className="motion-engagement-eyebrow">{copy.introConsultation.eyebrow}</p>
+                    <h3>{copy.introConsultation.title}</h3>
+                    <p>{copy.introConsultation.description}</p>
+                  </div>
+                </article>
+              )}
               {engagements.map((engagement, index) => (
                 <article
                   className="engagement-card motion-engagement-card motion-reveal motion-tilt"
                   key={engagement.title}
-                  style={{ "--motion-index": index } as React.CSSProperties}
+                  style={{ "--motion-index": index + (copy.introConsultation ? 1 : 0) } as React.CSSProperties}
                 >
                   <Icon name={engagement.icon as IconName} size={39} weight="light" />
                   <div>

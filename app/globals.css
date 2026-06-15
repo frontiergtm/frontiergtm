@@ -194,10 +194,12 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .light-heading h2 { color: white; }
 .light-heading p { color: #d9a536; }
 .engagement-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 38px; margin-top: 27px; }
+.engagement-grid-four { grid-template-columns: repeat(4,minmax(0,1fr)); gap: 18px; }
 .engagement-card {
   display: grid; grid-template-columns: 54px 1fr; gap: 14px; min-height: 145px;
   border: 1px solid rgba(213,225,226,.54); border-radius: 6px; padding: 21px; color: #d9a536;
 }
+.engagement-card-intro { border-color: rgba(217,165,54,.7); background: rgba(62,103,70,.68); }
 .engagement-card h3 { margin: 0; color: white; font-size: 16px; font-weight: 500; letter-spacing: -.018em; }
 .engagement-card p { margin: 8px 0 0; color: #dce3d8; font-size: 12px; font-weight: 400; line-height: 1.6; }
 .engagement-conversion-note {
@@ -279,6 +281,7 @@ footer p { margin: 0; }
   .hero-inner { align-items: flex-end; padding-bottom: 65px; }
   .hero-copy { width: 100%; max-width: 680px; margin: 0; }
   .services-grid { grid-template-columns: repeat(3,1fr); }
+  .engagement-grid-four { grid-template-columns: repeat(2,1fr); }
   .audience-layout { grid-template-columns: 260px 1fr; }
   .audience-grid { grid-template-columns: repeat(3,1fr); }
   .employer-logo-row { gap: 20px; }
