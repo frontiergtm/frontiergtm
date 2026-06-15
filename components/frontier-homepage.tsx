@@ -157,7 +157,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               <h2>
                 {copy.problemHeadingStacked ? (
                   <>
-                    The AI <span>gold</span> rush is on.
+                    The AI <span>gold rush</span> is on.
                     <span className="problem-heading-payoff">
                       Your time to strike is <span>now</span>.
                     </span>
