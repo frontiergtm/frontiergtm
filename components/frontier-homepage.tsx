@@ -337,7 +337,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
       <footer>
         <p>© {new Date().getFullYear()} FrontierGTM</p>
         <div className="footer-links">
-          <a href="mailto:hello@frontiergtm.com">hello@frontiergtm.com</a>
+          <a href="mailto:ryan@frontiergtm.ai">ryan@frontiergtm.ai</a>
           <a
             className="footer-social-link"
             href="https://www.linkedin.com/company/frontiergtm/"
