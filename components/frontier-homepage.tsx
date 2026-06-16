@@ -297,7 +297,15 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               <p className="about-eyebrow">Why FrontierGTM</p>
               <h2>Built from hands-on experience at the AI and cloud frontier.</h2>
               <p className="about-lead">
-                Ryan brings experience from Together AI, Google Cloud, DigitalOcean, Vultr, and Oracle across AI
+                <a
+                  className="about-lead-link"
+                  href="https://www.linkedin.com/in/ryanpollock/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ryan Pollock
+                </a>{" "}
+                brings experience from Together AI, Google Cloud, DigitalOcean, Vultr, and Oracle across AI
                 infrastructure, cloud platforms, developer products, and high-growth B2B technology.
               </p>
               <div className="proof-list">
