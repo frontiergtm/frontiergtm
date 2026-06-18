@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowDown, ArrowRight, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+import { BookCallLink } from "@/components/book-call-link";
 import { Header } from "@/components/header";
 import { Icon, IconName } from "@/components/icons";
 import { MotionEffects } from "@/components/motion-effects";
@@ -110,9 +111,15 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             </h1>
             <p className="hero-subhead">{copy.heroSubhead}</p>
             <div className="hero-actions">
-              <a className="button motion-button" href={consultationMailto} target="_blank" rel="noopener noreferrer">
+              <BookCallLink
+                className="button motion-button"
+                href={consultationMailto}
+                target="_blank"
+                rel="noopener noreferrer"
+                trackingLocation="hero"
+              >
                 Book a Call <ArrowRight size={17} weight="bold" />
-              </a>
+              </BookCallLink>
               <a className="button button-secondary motion-button-secondary" href="#services">
                 See What We Help With <ArrowDown size={17} />
               </a>
@@ -331,9 +338,15 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               <p>{copy.ctaBody}</p>
             </div>
             <div className="cta-actions">
-              <a className="button motion-button" href={consultationMailto} target="_blank" rel="noopener noreferrer">
+              <BookCallLink
+                className="button motion-button"
+                href={consultationMailto}
+                target="_blank"
+                rel="noopener noreferrer"
+                trackingLocation="final_cta"
+              >
                 Book a Call <ArrowRight size={17} weight="bold" />
-              </a>
+              </BookCallLink>
               <a className="button button-secondary motion-button-secondary" href="mailto:hello@frontiergtm.com">
                 Send a Note <EnvelopeSimple size={18} />
               </a>

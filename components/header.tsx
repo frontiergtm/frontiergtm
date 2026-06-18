@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { List, X } from "@phosphor-icons/react";
+import { BookCallLink } from "@/components/book-call-link";
 import { consultationMailto } from "@/content/contact";
 import { navItems } from "@/content/site";
 
@@ -31,9 +32,15 @@ export function Header() {
           ))}
         </nav>
 
-        <a className="button button-small header-cta" href={consultationMailto} target="_blank" rel="noopener noreferrer">
+        <BookCallLink
+          className="button button-small header-cta"
+          href={consultationMailto}
+          target="_blank"
+          rel="noopener noreferrer"
+          trackingLocation="header"
+        >
           Book a Call
-        </a>
+        </BookCallLink>
 
         <button
           className="grid size-11 place-items-center rounded-full border border-white/20 text-white lg:hidden"
@@ -62,15 +69,16 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a
+          <BookCallLink
             className="button mt-8"
             href={consultationMailto}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
+            trackingLocation="mobile_nav"
           >
             Book a Call
-          </a>
+          </BookCallLink>
         </nav>
       </div>
     </header>
