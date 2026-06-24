@@ -2,6 +2,16 @@
 
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    gtag?: (
+      command: "event",
+      eventName: string,
+      eventParams?: Record<string, string | number | boolean>,
+    ) => void;
+  }
+}
+
 export function MotionEffects() {
   useEffect(() => {
     const root = document.documentElement;
@@ -48,6 +58,24 @@ export function MotionEffects() {
 
     reveals.forEach((element) => observer.observe(element));
 
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-section]"));
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionName = entry.target.getAttribute("data-section");
+            if (sectionName) {
+              window.gtag?.("event", "section_viewed", { section_name: sectionName });
+            }
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 },
+    );
+
+    sections.forEach((element) => sectionObserver.observe(element));
+
     const tiltCards = Array.from(document.querySelectorAll<HTMLElement>(".motion-tilt"));
     const cleanups = tiltCards.map((card) => {
       const move = (event: PointerEvent) => {
@@ -81,6 +109,7 @@ export function MotionEffects() {
     return () => {
       if (frame) window.cancelAnimationFrame(frame);
       observer.disconnect();
+      sectionObserver.disconnect();
       cleanups.forEach((cleanup) => cleanup());
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);

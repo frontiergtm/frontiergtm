@@ -133,7 +133,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
       </section>
 
       <div id="main-content">
-        <section className="employer-band motion-employer-band" aria-labelledby="motion-employer-title">
+        <section className="employer-band motion-employer-band" aria-labelledby="motion-employer-title" data-section="employer_band">
           <div className="wide-shell employer-band-inner motion-reveal">
             <p id="motion-employer-title" className="employer-band-label">
               From Ryan Pollock, the pioneering marketer behind
@@ -159,7 +159,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           </div>
         </section>
 
-        <section className="problem-section motion-problem" id="problem">
+        <section className="problem-section motion-problem" id="problem" data-section="problem">
           <div className="motion-route-line" aria-hidden="true"><span /></div>
           <div className="compact-shell problem-grid">
             <div className="problem-heading motion-reveal motion-reveal-left">
@@ -187,7 +187,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           </div>
         </section>
 
-        <section className="services-section motion-services" id="services">
+        <section className="services-section motion-services" id="services" data-section="services">
           <div className="wide-shell">
             <div className="center-heading motion-reveal">
               <p className="motion-section-kicker">Your route forward</p>
@@ -211,7 +211,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           </div>
         </section>
 
-        <section className="audience-section motion-audience" id="audience">
+        <section className="audience-section motion-audience" id="audience" data-section="audience">
           <div className="wide-shell audience-layout">
             <div className="audience-intro motion-reveal motion-reveal-left">
               <p className="motion-section-kicker">Built for the builders</p>
@@ -230,7 +230,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           </div>
         </section>
 
-        <section className="engagements-section motion-engagements" id="engagements">
+        <section className="engagements-section motion-engagements" id="engagements" data-section="engagements">
           <div className="motion-engagement-glow" aria-hidden="true" />
           <div className="wide-shell">
             <div className="center-heading light-heading motion-reveal">
@@ -279,7 +279,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           </div>
         </section>
 
-        <section className="about-section motion-about" id="about">
+        <section className="about-section motion-about" id="about" data-section="about">
           <div className="about-landscape motion-about-landscape" aria-hidden="true" />
           <div className="wide-shell about-layout">
             <figure className="about-portrait motion-about-portrait motion-reveal motion-reveal-left">
@@ -327,7 +327,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           </div>
         </section>
 
-        <section className="cta-section motion-cta" id="contact">
+        <section className="cta-section motion-cta" id="contact" data-section="cta">
           <div className="cta-image motion-cta-image" />
           <div className="cta-scrim" />
           <div className="motion-cta-trail" aria-hidden="true" />
