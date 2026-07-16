@@ -44,7 +44,7 @@ export async function checkSignalRate(identifier: string, limit = 3, scope = "br
 }
 
 export function signalCacheKey(input: object) {
-  return `frontiergtm:signal:cache:v2:${hash(JSON.stringify(input))}`;
+  return `frontiergtm:signal:cache:v3:${hash(JSON.stringify(input))}`;
 }
 
 export async function getCachedSignal(key: string) {

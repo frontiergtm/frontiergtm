@@ -26,16 +26,17 @@ function periodStart(horizon: SignalRequest["horizon"]) {
   return new Date(Date.now() - days * 86_400_000).toISOString();
 }
 
-function searchQueries(request: SignalRequest) {
+function searchPlans(request: SignalRequest) {
   const watched = request.watchlist.length ? ` Companies to watch: ${request.watchlist.join(", ")}.` : "";
   return [
-    `${request.market} recent product launches pricing partnerships customer adoption and market changes.${watched}`,
-    `${request.company} ${request.market} competitive moves positioning announcements.${watched}`,
-    `${request.market}: ${request.question}${watched}`,
+    { query: `${request.company} official website products services customers positioning`, purpose: "company-context" as const, numResults: 4 },
+    { query: `${request.market} recent product launches pricing partnerships customer adoption and market changes.${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
+    { query: `${request.company} ${request.market} competitive moves positioning announcements.${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
+    { query: `${request.market}: ${request.question}${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
   ];
 }
 
-async function exaSearch(query: string, startPublishedDate: string) {
+async function exaSearch(plan: ReturnType<typeof searchPlans>[number]) {
   const apiKey = process.env.EXA_API_KEY;
   if (!apiKey) {
     throw new SignalError(
@@ -50,10 +51,10 @@ async function exaSearch(query: string, startPublishedDate: string) {
     signal: AbortSignal.timeout(18_000),
     headers: { "content-type": "application/json", "x-api-key": apiKey },
     body: JSON.stringify({
-      query,
+      query: plan.query,
       type: "auto",
-      numResults: 6,
-      startPublishedDate,
+      numResults: plan.numResults,
+      ...(plan.startPublishedDate ? { startPublishedDate: plan.startPublishedDate } : {}),
       moderation: true,
       systemPrompt: "Prefer first-party company announcements, official documentation, major business or technology publications, and direct reporting. Avoid SEO listicles, content farms, and unsourced market summaries when stronger sources exist. Collapse duplicate coverage.",
       contents: {
@@ -71,13 +72,13 @@ async function exaSearch(query: string, startPublishedDate: string) {
   }
 
   const payload = (await response.json()) as { results?: ExaResult[] };
-  return payload.results ?? [];
+  return (payload.results ?? []).map((result) => ({ ...result, purpose: plan.purpose }));
 }
 
 export async function researchMarket(request: SignalRequest) {
   const start = periodStart(request.horizon);
-  const resultSets = await Promise.all(searchQueries(request).map((query) => exaSearch(query, start)));
-  const unique = new Map<string, ExaResult>();
+  const resultSets = await Promise.all(searchPlans(request).map(exaSearch));
+  const unique = new Map<string, ExaResult & { purpose: "company-context" | "market-signal" }>();
 
   resultSets.flat().forEach((result) => {
     if (!result.title || !isPublicHttpUrl(result.url)) return;
@@ -93,6 +94,7 @@ export async function researchMarket(request: SignalRequest) {
     url: result.url!,
     domain: new URL(result.url!).hostname.replace(/^www\./, ""),
     publishedDate: result.publishedDate,
+    purpose: result.purpose,
     excerpt: [result.summary, ...(result.highlights ?? [])].filter(Boolean).join("\n").slice(0, MAX_SOURCE_CHARS),
   }));
 

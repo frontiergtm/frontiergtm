@@ -17,6 +17,7 @@ export const signalSourceSchema = z.object({
   url: z.string().url(),
   publishedDate: z.string().optional(),
   domain: z.string(),
+  purpose: z.enum(["company-context", "market-signal"]),
 });
 
 const sourcedItem = z.object({
