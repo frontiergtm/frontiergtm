@@ -55,6 +55,7 @@ async function exaSearch(query: string, startPublishedDate: string) {
       numResults: 6,
       startPublishedDate,
       moderation: true,
+      systemPrompt: "Prefer first-party company announcements, official documentation, major business or technology publications, and direct reporting. Avoid SEO listicles, content farms, and unsourced market summaries when stronger sources exist. Collapse duplicate coverage.",
       contents: {
         highlights: { maxCharacters: 1_800 },
         summary: { query: "Summarize the concrete market change, announcement, evidence, date, and strategic relevance. Do not speculate." },

@@ -40,7 +40,9 @@ Rules:
 - Prefer 5 meaningful developments, but return as few as 3 if the evidence cannot support 5.
 - Synthesize duplicate coverage into one development. Prioritize product, positioning, pricing, partnership, adoption, and category shifts over generic funding news.
 - Make implications and actions specific to the company and strategic question. Clearly reflect uncertainty.
-- Provide exactly three actions. They may be messaging, launch, content, sales, partnership, research, or monitoring moves.
+- Do not assume the company sells products in the market being watched. The market may be a customer segment, partner ecosystem, or adjacent category.
+- If the evidence does not establish what the company sells, never recommend that it build market-specific infrastructure, copy a competitor's product, or adopt a competitor's pricing model.
+- Provide exactly three GTM actions—not product-roadmap prescriptions. Prefer positioning, messaging, launch, content, sales, partnership, customer research, or monitoring moves unless the question explicitly asks for product strategy.
 - Write crisply for an executive. Avoid generic AI-market language and exaggerated certainty.
 - Output only JSON matching this schema: ${schemaText}
 
