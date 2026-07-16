@@ -41,12 +41,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ ...cached, cached: true }, { headers: { "cache-control": "private, no-store" } });
     }
 
+    const research = await researchCompany(companyUrl);
+
+    // Only successful evidence collection consumes an analysis allowance.
+    // Unreachable or bot-protected websites never reach the paid model call.
     const rate = await checkRateLimit(clientIdentifier(request));
     if (!rate.allowed) {
       throw new ScanError("rate_limited", "You have reached the rolling 24-hour scan limit. Please try again later.", 429);
     }
 
-    const research = await researchCompany(companyUrl);
     const report = await analyzeCompany(payload, research.canonicalUrl, research.sources);
     await setCachedReport(cacheKey, report);
 

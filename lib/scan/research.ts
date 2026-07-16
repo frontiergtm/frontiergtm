@@ -103,6 +103,13 @@ async function safeFetchHtml(initialUrl: URL) {
       continue;
     }
 
+    if ([401, 403, 429].includes(response.status)) {
+      throw new ScanError(
+        "blocked_url",
+        "That website blocks automated access, so FrontierGTM could not collect enough public evidence. Try a public product, pricing, or documentation URL instead.",
+        422,
+      );
+    }
     if (!response.ok) throw new ScanError("unreachable_url", `The website returned ${response.status}.`, 422);
     if (!(response.headers.get("content-type") ?? "").toLowerCase().includes("text/html")) {
       throw new ScanError("unsupported_page", "The submitted address is not an HTML website.", 422);
