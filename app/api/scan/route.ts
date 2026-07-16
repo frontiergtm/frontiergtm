@@ -14,7 +14,7 @@ import {
 import { assertPublicUrl, normalizeCompanyUrl } from "@/lib/scan/url";
 
 export const runtime = "nodejs";
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 function clientIdentifier(request: NextRequest) {
   return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown";

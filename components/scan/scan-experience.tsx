@@ -128,11 +128,15 @@ export function ScanExperience() {
     track("scan_started", { priority });
 
     try {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 110_000);
       const response = await fetch("/api/scan", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ url, priority, competitor: competitor || undefined, website: honeypot }),
+        signal: controller.signal,
       });
+      window.clearTimeout(timeout);
       const payload = await response.json();
       if (!response.ok) throw new Error(payload.message || "The scan could not be completed.");
       setReport(payload as ScanReport);
@@ -140,7 +144,9 @@ export function ScanExperience() {
       track("scan_completed", { priority, source_count: payload.sources?.length ?? 0, target_fit: payload.company?.targetFit ?? "unknown" });
       window.setTimeout(() => document.getElementById("scan-results")?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
     } catch (caught) {
-      const message = caught instanceof Error ? caught.message : "The scan could not be completed.";
+      const message = caught instanceof DOMException && caught.name === "AbortError"
+        ? "The analysis took too long. Please try again."
+        : caught instanceof Error ? caught.message : "The scan could not be completed.";
       setError(message);
       setStatus("error");
       track("scan_failed", { priority });

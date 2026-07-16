@@ -33,6 +33,8 @@ export async function analyzeCompany(
     // Together's serverless inference remains available on the compatible .xyz
     // endpoint even when the SDK's catalog-only default returns model 404s.
     baseURL: process.env.TOGETHER_BASE_URL || "https://api.together.xyz/v1",
+    timeout: 100_000,
+    maxRetries: 0,
   });
   const schemaText = JSON.stringify(jsonSchema);
   const prompt = `Create an outside-in GTM scan using only the supplied public evidence.
