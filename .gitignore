@@ -17,3 +17,6 @@ public/frontier-hero-bay-geography.png
 public/frontier-hero-headlands-view.png
 public/frontier-hero-headlands-view-v2.png
 public/ryan-pollock-editorial.png
+.vercel/
+.env*
+!.env.example
