@@ -39,6 +39,14 @@ Public launch requires the Upstash variables in `.env.example` for durable rate
 limiting, report caching, and lead capture. Resend or a webhook is optional for
 immediate lead notifications; local development uses in-memory fallbacks.
 
+## FrontierGTM Signal
+
+The public `/signal` product researches recent market and company moves, then uses
+Together AI to turn that evidence into an executive brief with linked sources,
+strategic implications, and three concrete GTM actions. Exa is required for live
+Signal research; the Together, Upstash, and optional Resend settings are shared
+with Scan. `TOGETHER_SIGNAL_MODEL` can override the analysis model independently.
+
 ## Editing content
 
 - Main page entry point: `app/page.tsx`

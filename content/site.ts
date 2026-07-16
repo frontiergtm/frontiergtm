@@ -1,5 +1,6 @@
 export const navItems = [
   { label: "GTM Scan", href: "/scan" },
+  { label: "Signal", href: "/signal" },
   { label: "What We Do", href: "#services" },
   { label: "Who It’s For", href: "#audience" },
   { label: "How It Works", href: "#engagements" },
