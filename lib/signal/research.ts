@@ -1,5 +1,6 @@
 import { SignalError } from "@/lib/signal/errors";
 import type { SignalRequest, SignalSource } from "@/lib/signal/schema";
+import { researchCompany } from "@/lib/scan/research";
 
 const MAX_SOURCE_CHARS = 4_500;
 const MAX_SOURCES = 14;
@@ -43,11 +44,29 @@ function searchPlans(request: SignalRequest): SearchPlan[] {
   const watched = request.watchlist.length ? ` Companies to watch: ${request.watchlist.join(", ")}.` : "";
   const domain = companyDomain(request.company);
   return [
-    { query: `${request.company} official website products services customers positioning`, purpose: "company-context" as const, numResults: 4, ...(domain ? { includeDomains: [domain] } : {}) },
+    ...(!domain ? [{ query: `${request.company} official website products services customers positioning`, purpose: "company-context" as const, numResults: 4 }] : []),
     { query: `${request.market} recent product launches pricing partnerships customer adoption and market changes.${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
     { query: `${request.company} ${request.market} competitive moves positioning announcements.${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
     { query: `${request.market}: ${request.question}${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
   ];
+}
+
+async function firstPartyCompanyContext(domain?: string): Promise<SignalSource[]> {
+  if (!domain) return [];
+  try {
+    const research = await researchCompany(new URL(`https://${domain}`));
+    return research.sources.filter((source) => source.kind === "company").slice(0, 4).map((source, index) => ({
+      id: `C${index + 1}`,
+      title: source.title,
+      url: source.url,
+      domain: new URL(source.url).hostname.replace(/^www\./, ""),
+      publishedDate: source.publishedDate,
+      purpose: "company-context",
+      excerpt: source.excerpt,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 async function exaSearch(plan: SearchPlan) {
@@ -92,7 +111,11 @@ async function exaSearch(plan: SearchPlan) {
 
 export async function researchMarket(request: SignalRequest) {
   const start = periodStart(request.horizon);
-  const resultSets = await Promise.all(searchPlans(request).map(exaSearch));
+  const domain = companyDomain(request.company);
+  const [firstParty, resultSets] = await Promise.all([
+    firstPartyCompanyContext(domain),
+    Promise.all(searchPlans(request).map(exaSearch)),
+  ]);
   const unique = new Map<string, ExaResult & { purpose: "company-context" | "market-signal" }>();
 
   resultSets.flat().forEach((result) => {
@@ -103,8 +126,8 @@ export async function researchMarket(request: SignalRequest) {
     if (!unique.has(normalized)) unique.set(normalized, { ...result, url: normalized });
   });
 
-  const sources: SignalSource[] = Array.from(unique.values()).slice(0, MAX_SOURCES).map((result, index) => ({
-    id: `S${index + 1}`,
+  const exaSources: SignalSource[] = Array.from(unique.values()).map((result, index) => ({
+    id: `E${index + 1}`,
     title: result.title!,
     url: result.url!,
     domain: new URL(result.url!).hostname.replace(/^www\./, ""),
@@ -112,6 +135,10 @@ export async function researchMarket(request: SignalRequest) {
     purpose: result.purpose,
     excerpt: [result.summary, ...(result.highlights ?? [])].filter(Boolean).join("\n").slice(0, MAX_SOURCE_CHARS),
   }));
+  const sourceUrls = new Set(firstParty.map((source) => source.url));
+  const sources = [...firstParty, ...exaSources.filter((source) => !sourceUrls.has(source.url))]
+    .slice(0, MAX_SOURCES)
+    .map((source, index) => ({ ...source, id: `S${index + 1}` }));
 
   if (sources.length < 4) {
     throw new SignalError(
