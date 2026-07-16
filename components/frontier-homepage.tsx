@@ -120,8 +120,8 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               >
                 Book a Call <ArrowRight size={17} weight="bold" />
               </BookCallLink>
-              <a className="button button-secondary motion-button-secondary" href="#services">
-                See What We Help With <ArrowDown size={17} />
+              <a className="button button-secondary motion-button-secondary" href="/scan">
+                Run a Free GTM Scan <ArrowRight size={17} />
               </a>
             </div>
           </div>
@@ -347,7 +347,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               >
                 Book a Call <ArrowRight size={17} weight="bold" />
               </BookCallLink>
-              <a className="button button-secondary motion-button-secondary" href="mailto:hello@frontiergtm.com">
+              <a className="button button-secondary motion-button-secondary" href="mailto:ryan@frontiergtm.ai">
                 Send a Note <EnvelopeSimple size={18} />
               </a>
             </div>

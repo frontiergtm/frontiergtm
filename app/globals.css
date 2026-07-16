@@ -218,7 +218,7 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .about-section { position: relative; overflow: hidden; background: #f8f6ef; }
 .about-landscape {
   position: absolute; right: -130px; bottom: -90px; width: 520px; height: 360px;
-  background: url("/frontier-hero.png") left bottom / cover no-repeat; filter: grayscale(1); opacity: .08;
+  background: url("/frontier-hero-headlands-view-v8.png") left bottom / cover no-repeat; filter: grayscale(1); opacity: .08;
 }
 .about-layout {
   position: relative; display: grid; grid-template-columns: minmax(280px, 340px) 1fr; align-items: center;
@@ -252,7 +252,7 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .proof-row p { margin: 0; color: #344337; font-size: 13px; line-height: 1.55; }
 
 .cta-section { position: relative; overflow: hidden; min-height: 240px; border-top: 1px solid rgba(217,165,54,.35); background: #173d2d; }
-.cta-image { position: absolute; inset: 0; background: url("/frontier-hero.png") 42% 67% / cover no-repeat; opacity: .43; }
+.cta-image { position: absolute; inset: 0; background: url("/frontier-hero-headlands-view-v8.png") 42% 67% / cover no-repeat; opacity: .43; }
 .cta-scrim { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,45,33,.98), rgba(31,80,57,.82), rgba(17,51,37,.94)); }
 .cta-layout { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 50px; min-height: 240px; padding: 32px 0; }
 .cta-layout h2 { margin: 0; color: white; font-size: 30px; font-weight: 700; line-height: 1.07; letter-spacing: -.038em; }

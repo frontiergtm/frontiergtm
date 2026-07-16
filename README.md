@@ -1,6 +1,6 @@
 # FrontierGTM Marketing Site
 
-A static, responsive one-page marketing website built with Next.js, TypeScript, Tailwind CSS, and Phosphor icons.
+A responsive marketing and product website built with Next.js, TypeScript, Tailwind CSS, and Phosphor icons.
 
 ## Run locally
 
@@ -25,7 +25,19 @@ npm run lint
 npm run build
 ```
 
-The Next.js config uses `output: "export"`, so the production build is emitted as static files in `out/`.
+The site deploys as a standard Next.js application on Vercel. This allows the public
+FrontierGTM Scan to use server-side routes without exposing provider credentials.
+
+## FrontierGTM Scan
+
+The public `/scan` product analyzes a company website and returns a source-backed,
+outside-in GTM report. Local development requires the variables documented in
+`.env.example`. Production secrets belong in Vercel project settings and must never
+use the `NEXT_PUBLIC_` prefix.
+
+Public launch requires the Upstash variables in `.env.example` for durable rate
+limiting, report caching, and lead capture. Resend or a webhook is optional for
+immediate lead notifications; local development uses in-memory fallbacks.
 
 ## Editing content
 
