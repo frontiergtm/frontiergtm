@@ -85,7 +85,7 @@ export function SignalExperience() {
         <div className={styles.formIntro}><p className={styles.stepLabel}>Frame the decision</p><h2>Generate a market move brief</h2><p>Tell Signal what market you are watching and what decision you need to make.</p></div>
         <form className={styles.signalForm} onSubmit={generate}>
           <div className={styles.formGrid}>
-            <label><span>Your company or product</span><input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="FrontierGTM" required maxLength={120} /></label>
+            <label><span>Company website or product</span><input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="company.ai or product name" required maxLength={120} /><small className={styles.fieldHint}>A company domain gives the most precise brief.</small></label>
             <label><span>Market or category</span><input value={market} onChange={(e) => setMarket(e.target.value)} placeholder="AI inference platforms" required maxLength={160} /></label>
           </div>
           <label className={styles.questionField}><span>The strategic question</span><textarea value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="What changed in this market, and which move should we make next?" required minLength={10} maxLength={400} /></label>

@@ -30,7 +30,8 @@ export function signalLaunchConfigured() {
 }
 
 export async function checkSignalRate(identifier: string, limit = 3, scope = "brief") {
-  const key = `frontiergtm:signal:rate:v1:${scope}:${hash(identifier)}`;
+  const epoch = process.env.SIGNAL_RATE_LIMIT_EPOCH?.trim() || "v2";
+  const key = `frontiergtm:signal:rate:${epoch}:${scope}:${hash(identifier)}`;
   if (redisConfigured()) {
     const count = Number((await redisCommand<number>(["INCR", key])) ?? 0);
     if (count === 1) await redisCommand(["EXPIRE", key, 86_400]);
@@ -44,7 +45,7 @@ export async function checkSignalRate(identifier: string, limit = 3, scope = "br
 }
 
 export function signalCacheKey(input: object) {
-  return `frontiergtm:signal:cache:v3:${hash(JSON.stringify(input))}`;
+  return `frontiergtm:signal:cache:v4:${hash(JSON.stringify(input))}`;
 }
 
 export async function getCachedSignal(key: string) {

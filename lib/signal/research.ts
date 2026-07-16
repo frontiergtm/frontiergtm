@@ -12,6 +12,14 @@ type ExaResult = {
   summary?: string;
 };
 
+type SearchPlan = {
+  query: string;
+  purpose: "company-context" | "market-signal";
+  numResults: number;
+  startPublishedDate?: string;
+  includeDomains?: string[];
+};
+
 function isPublicHttpUrl(value?: string) {
   if (!value) return false;
   try {
@@ -26,17 +34,23 @@ function periodStart(horizon: SignalRequest["horizon"]) {
   return new Date(Date.now() - days * 86_400_000).toISOString();
 }
 
-function searchPlans(request: SignalRequest) {
+function companyDomain(value: string) {
+  const candidate = value.trim().replace(/^https?:\/\//i, "").split("/")[0].replace(/^www\./i, "");
+  return candidate.includes(".") && /^[a-z0-9.-]+$/i.test(candidate) ? candidate : undefined;
+}
+
+function searchPlans(request: SignalRequest): SearchPlan[] {
   const watched = request.watchlist.length ? ` Companies to watch: ${request.watchlist.join(", ")}.` : "";
+  const domain = companyDomain(request.company);
   return [
-    { query: `${request.company} official website products services customers positioning`, purpose: "company-context" as const, numResults: 4 },
+    { query: `${request.company} official website products services customers positioning`, purpose: "company-context" as const, numResults: 4, ...(domain ? { includeDomains: [domain] } : {}) },
     { query: `${request.market} recent product launches pricing partnerships customer adoption and market changes.${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
     { query: `${request.company} ${request.market} competitive moves positioning announcements.${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
     { query: `${request.market}: ${request.question}${watched}`, purpose: "market-signal" as const, numResults: 5, startPublishedDate: periodStart(request.horizon) },
   ];
 }
 
-async function exaSearch(plan: ReturnType<typeof searchPlans>[number]) {
+async function exaSearch(plan: SearchPlan) {
   const apiKey = process.env.EXA_API_KEY;
   if (!apiKey) {
     throw new SignalError(
@@ -55,6 +69,7 @@ async function exaSearch(plan: ReturnType<typeof searchPlans>[number]) {
       type: "auto",
       numResults: plan.numResults,
       ...(plan.startPublishedDate ? { startPublishedDate: plan.startPublishedDate } : {}),
+      ...(plan.includeDomains ? { includeDomains: plan.includeDomains } : {}),
       moderation: true,
       systemPrompt: "Prefer first-party company announcements, official documentation, major business or technology publications, and direct reporting. Avoid SEO listicles, content farms, and unsourced market summaries when stronger sources exist. Collapse duplicate coverage.",
       contents: {
