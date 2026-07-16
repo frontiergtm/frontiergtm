@@ -33,17 +33,17 @@ export async function POST(request: NextRequest) {
     const payload = scanRequestSchema.parse(await request.json());
     if (payload.website) return NextResponse.json({ error: "invalid_request", message: "Invalid request." }, { status: 400 });
 
-    const rate = await checkRateLimit(clientIdentifier(request));
-    if (!rate.allowed) {
-      throw new ScanError("rate_limited", "You have reached today’s scan limit. Try again tomorrow.", 429);
-    }
-
     const companyUrl = normalizeCompanyUrl(payload.url);
     await assertPublicUrl(companyUrl);
     const cacheKey = scanCacheKey(companyUrl.hostname, payload.priority, payload.competitor);
     const cached = await getCachedReport(cacheKey);
     if (cached) {
       return NextResponse.json({ ...cached, cached: true }, { headers: { "cache-control": "private, no-store" } });
+    }
+
+    const rate = await checkRateLimit(clientIdentifier(request));
+    if (!rate.allowed) {
+      throw new ScanError("rate_limited", "You have reached the rolling 24-hour scan limit. Please try again later.", 429);
     }
 
     const research = await researchCompany(companyUrl);

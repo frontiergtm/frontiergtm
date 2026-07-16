@@ -33,8 +33,9 @@ export function publicLaunchConfigured() {
   return process.env.NODE_ENV !== "production" || redisConfigured();
 }
 
-export async function checkRateLimit(identifier: string, limit = 3, scope = "scan") {
-  const key = `frontiergtm:scan:rate:${scope}:${hashValue(identifier)}`;
+export async function checkRateLimit(identifier: string, limit = 10, scope = "scan") {
+  const epoch = process.env.SCAN_RATE_LIMIT_EPOCH?.trim() || "v2";
+  const key = `frontiergtm:scan:rate:${epoch}:${scope}:${hashValue(identifier)}`;
   if (redisConfigured()) {
     const count = Number((await redisCommand<number>(["INCR", key])) ?? 0);
     if (count === 1) await redisCommand(["EXPIRE", key, 86_400]);
