@@ -75,6 +75,7 @@ export async function researchLaunch(request: LaunchRequest) {
   const description = request.description.slice(0, 320);
   const start = new Date(Date.now() - 180 * 86_400_000).toISOString();
   const queries = [
+    `${company} ${request.launchName} official announcement product documentation`,
     `${company} ${request.launchName} ${description} market competitors alternatives${competitorText}`,
     `${request.primaryBuyer} current priorities pain points adoption barriers ${request.launchName} ${description}`,
     `${request.competitors.join(" ")} recent product launches positioning pricing partnerships ${description}`,
@@ -89,12 +90,13 @@ export async function researchLaunch(request: LaunchRequest) {
     const excerpt = [result.summary, ...(result.highlights ?? [])].filter(Boolean).join("\n").trim();
     if (seen.has(url) || excerpt.length < 80) return;
     seen.add(url);
+    const domain = new URL(url).hostname.replace(/^www\./, "");
     market.push({
       id: "",
       title: result.title,
       url,
-      domain: new URL(url).hostname.replace(/^www\./, ""),
-      purpose: "market",
+      domain,
+      purpose: domain === company ? "launch" : "market",
       publishedDate: result.publishedDate,
       excerpt: excerpt.slice(0, MAX_SOURCE_CHARS),
     });

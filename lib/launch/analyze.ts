@@ -41,6 +41,7 @@ NON-NEGOTIABLE RULES
 - If a detail appears only in user context, label it as planned, proposed, or supplied by the team. Do not attach a public citation to it.
 - Every market fact must cite a supporting source ID. Never create source IDs or URLs.
 - Do not cite a source unless it supports the exact factual statement.
+- Only a company or launch source can verify a product-specific capability, availability state, SLA, price, integration, or performance claim. Market sources can establish category context, buyer needs, and competitor moves, but never facts about this launch.
 - Do not combine separate facts into an unsupported product claim. For example, a company performance benchmark plus a general market SLA article does not prove that this launch includes that benchmark or SLA.
 - First-party sources can establish company-reported capabilities and benchmarks, but describe them as company-reported when material. Competitor blogs, comparison sites, and SEO roundups cannot substantiate superiority or an absent competitor capability; use them only to form lower-confidence questions.
 - Never use "only," "widest," "best," or another uniqueness/superiority claim unless a credible direct comparison in the supplied evidence supports it.
