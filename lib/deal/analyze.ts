@@ -35,6 +35,7 @@ NON-NEGOTIABLE RULES
 - Never claim the target uses a vendor, product, architecture, or model unless supplied evidence says so.
 - Publication date is not necessarily event date. Do not call old information recent.
 - Every public factual claim in triggerEvents and priorities must cite directly supporting source IDs. Never create IDs or URLs.
+- Put source IDs only in sourceIds arrays. Do not write raw citation markers such as "(S4)" or "S4-S6" inside any prose field.
 - User context is not verified public evidence. Do not cite it or silently turn it into fact.
 - The account thesis is a hypothesis to test, not a claim that a deal exists.
 - Be honest about non-fit. Do not force a seller-target match. A weak or unclear fit is a valid and useful conclusion.
