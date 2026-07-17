@@ -20,7 +20,7 @@ function hash(value: string) { return createHash("sha256").update(`${process.env
 export function launchConfigured() { return process.env.NODE_ENV !== "production" || redisConfigured(); }
 
 export async function checkLaunchRate(identifier: string, limit = 3, scope = "brief") {
-  const epoch = process.env.LAUNCH_RATE_LIMIT_EPOCH?.trim() || "v1";
+  const epoch = process.env.LAUNCH_RATE_LIMIT_EPOCH?.trim() || "v2";
   const key = `frontiergtm:launch:rate:${epoch}:${scope}:${hash(identifier)}`;
   if (redisConfigured()) {
     const count = Number((await redisCommand<number>(["INCR", key])) ?? 0);
