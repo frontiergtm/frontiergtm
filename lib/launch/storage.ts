@@ -34,7 +34,7 @@ export async function checkLaunchRate(identifier: string, limit = 3, scope = "br
   return { allowed: entry.count <= limit, remaining: Math.max(limit - entry.count, 0) };
 }
 
-export function launchCacheKey(input: object) { return `frontiergtm:launch:cache:v1:${hash(JSON.stringify(input))}`; }
+export function launchCacheKey(input: object) { return `frontiergtm:launch:cache:v2:${hash(JSON.stringify(input))}`; }
 
 export async function getCachedLaunch(key: string) {
   if (redisConfigured()) {
