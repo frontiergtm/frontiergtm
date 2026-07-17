@@ -1,11 +1,13 @@
-export const navItems = [
-  { label: "GTM Scan", href: "/scan" },
-  { label: "Signal", href: "/signal" },
-  { label: "Launch", href: "/launch" },
-  { label: "What We Do", href: "#services" },
-  { label: "Who It’s For", href: "#audience" },
-  { label: "How It Works", href: "#engagements" },
-  { label: "About", href: "#about" },
+export const primaryNavItems = [
+  { label: "Consulting", href: "/#services" },
+  { label: "Who I Help", href: "/#audience" },
+  { label: "About", href: "/#about" },
+];
+
+export const agentNavItems = [
+  { label: "Scan", description: "Diagnose your public GTM story", href: "/scan" },
+  { label: "Signal", description: "Find market changes worth acting on", href: "/signal" },
+  { label: "Launch", description: "Build an evidence-grounded launch strategy", href: "/launch" },
 ];
 
 export const services = [

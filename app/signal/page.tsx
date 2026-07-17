@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { Header } from "@/components/header";
 import { SignalExperience } from "@/components/signal/signal-experience";
 import styles from "./signal.module.css";
 
@@ -20,16 +18,8 @@ export const metadata: Metadata = {
 
 export default function SignalPage() {
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/" aria-label="FrontierGTM home">
-          <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority />
-        </Link>
-        <div className={styles.headerLinks}>
-          <Link href="/scan">GTM Scan</Link>
-          <Link href="/"><ArrowLeft size={15} weight="bold" /> FrontierGTM</Link>
-        </div>
-      </header>
+    <main className={styles.page} id="top">
+      <Header />
 
       <section className={styles.hero}>
         <div className={styles.radar} aria-hidden="true"><span /><span /><span /><i /></div>

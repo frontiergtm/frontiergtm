@@ -1,14 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { List, X } from "@phosphor-icons/react";
+import { CaretDown, List, X } from "@phosphor-icons/react";
 import { BookCallLink } from "@/components/book-call-link";
 import { consultationMailto } from "@/content/contact";
-import { navItems } from "@/content/site";
+import { agentNavItems, primaryNavItems } from "@/content/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const agentPageActive = agentNavItems.some((item) => item.href === pathname);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -20,15 +23,26 @@ export function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-50 border-b border-white/10">
       <div className="mx-auto flex h-20 max-w-[1180px] items-center justify-between px-5 sm:px-6">
-        <a className="brand-wordmark" href="#top" aria-label="FrontierGTM home">
+        <a className="brand-wordmark" href="/" aria-label="FrontierGTM home">
           <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <a className="nav-link" href={item.href} key={item.href}>
-              {item.label}
-            </a>
+          <a className="nav-link" href={primaryNavItems[0].href}>{primaryNavItems[0].label}</a>
+          <details className="nav-menu">
+            <summary className={`nav-link nav-menu-trigger ${agentPageActive ? "nav-menu-current" : ""}`}>GTM Agents <CaretDown size={13} weight="bold" /></summary>
+            <div className="nav-menu-panel">
+              <p>FrontierGTM agents</p>
+              {agentNavItems.map((item) => (
+                <a className={`agent-nav-item ${pathname === item.href ? "agent-nav-item-current" : ""}`} href={item.href} key={item.href} aria-current={pathname === item.href ? "page" : undefined}>
+                  <strong>{item.label}</strong>
+                  <span>{item.description}</span>
+                </a>
+              ))}
+            </div>
+          </details>
+          {primaryNavItems.slice(1).map((item) => (
+            <a className="nav-link" href={item.href} key={item.href}>{item.label}</a>
           ))}
         </nav>
 
@@ -39,7 +53,7 @@ export function Header() {
           rel="noopener noreferrer"
           trackingLocation="header"
         >
-          Book a Call
+          Work with Ryan
         </BookCallLink>
 
         <button
@@ -59,7 +73,22 @@ export function Header() {
         }`}
       >
         <nav className="mx-auto flex max-w-lg flex-col" aria-label="Mobile navigation">
-          {navItems.map((item) => (
+          <a className="mobile-nav-link border-b border-white/10 py-5 text-2xl font-normal tracking-[-0.02em]" href={primaryNavItems[0].href} onClick={() => setOpen(false)}>
+            {primaryNavItems[0].label}
+          </a>
+          <details className="mobile-agent-menu border-b border-white/10">
+            <summary className="mobile-nav-link flex cursor-pointer items-center justify-between py-5 text-2xl font-normal tracking-[-0.02em]">
+              GTM Agents <CaretDown size={18} weight="bold" />
+            </summary>
+            <div className="mobile-agent-list">
+              {agentNavItems.map((item) => (
+                <a className={pathname === item.href ? "mobile-agent-current" : ""} href={item.href} key={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={() => setOpen(false)}>
+                  <strong>{item.label}</strong><span>{item.description}</span>
+                </a>
+              ))}
+            </div>
+          </details>
+          {primaryNavItems.slice(1).map((item) => (
             <a
               className="mobile-nav-link border-b border-white/10 py-5 text-2xl font-normal tracking-[-0.02em]"
               href={item.href}
@@ -77,7 +106,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             trackingLocation="mobile_nav"
           >
-            Book a Call
+            Work with Ryan
           </BookCallLink>
         </nav>
       </div>

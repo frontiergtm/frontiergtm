@@ -58,6 +58,32 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
   background: #d9a536; transform: scaleX(0); transition: transform 180ms ease;
 }
 .nav-link:hover::after { transform: scaleX(1); }
+.nav-menu { position: relative; }
+.nav-menu summary { list-style: none; }
+.nav-menu summary::-webkit-details-marker { display: none; }
+.nav-menu-trigger { display: flex; cursor: pointer; align-items: center; gap: 5px; }
+.nav-menu-current { color: #efc35d; }
+.nav-menu[open] .nav-menu-trigger svg { transform: rotate(180deg); }
+.nav-menu-panel {
+  position: absolute; top: calc(100% + 20px); left: 50%; width: 330px; transform: translateX(-50%);
+  border: 1px solid rgba(239,195,93,.3); border-radius: 8px; background: rgba(10,38,28,.98);
+  padding: 14px; box-shadow: 0 22px 55px rgba(4,20,14,.35); backdrop-filter: blur(18px);
+}
+.nav-menu-panel::before { position: absolute; top: -21px; right: 0; left: 0; height: 22px; content: ""; }
+.nav-menu-panel > p { margin: 0 8px 8px; color: #efc35d; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.agent-nav-item { display: grid; gap: 1px; border-radius: 5px; padding: 10px 9px; color: white; transition: background 160ms ease; }
+.agent-nav-item:hover { background: rgba(255,255,255,.07); }
+.agent-nav-item-current { background: rgba(239,195,93,.1); box-shadow: inset 2px 0 #efc35d; }
+.agent-nav-item strong { font-size: 14px; font-weight: 700; }
+.agent-nav-item span { color: rgba(229,237,232,.67); font-size: 11px; }
+.mobile-agent-menu summary { list-style: none; }
+.mobile-agent-menu summary::-webkit-details-marker { display: none; }
+.mobile-agent-menu[open] summary svg { transform: rotate(180deg); }
+.mobile-agent-list { display: grid; gap: 4px; padding: 0 0 18px 14px; }
+.mobile-agent-list a { display: grid; gap: 1px; border-left: 1px solid rgba(239,195,93,.45); padding: 8px 15px; color: white; }
+.mobile-agent-list .mobile-agent-current { border-left-width: 3px; background: rgba(239,195,93,.08); }
+.mobile-agent-list strong { color: #efc35d; font-size: 16px; }
+.mobile-agent-list span { color: rgba(255,255,255,.62); font-size: 11px; }
 .mobile-nav-link { color: #fff; }
 .mobile-nav-link:hover { color: #efc35d; }
 

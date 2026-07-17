@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { Header } from "@/components/header";
 import { ScanExperience } from "@/components/scan/scan-experience";
 import styles from "./scan.module.css";
 
@@ -21,15 +19,8 @@ export const metadata: Metadata = {
 
 export default function ScanPage() {
   return (
-    <main className={styles.page}>
-      <header className={styles.header}>
-        <Link className={styles.brand} href="/" aria-label="FrontierGTM home">
-          <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority />
-        </Link>
-        <Link className={styles.backLink} href="/">
-          <ArrowLeft size={16} weight="bold" /> Back to FrontierGTM
-        </Link>
-      </header>
+    <main className={styles.page} id="top">
+      <Header />
 
       <section className={styles.hero}>
         <div className={styles.heroGlow} aria-hidden="true" />

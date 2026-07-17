@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { Header } from "@/components/header";
 import { LaunchExperience } from "@/components/launch/launch-experience";
 import styles from "./launch.module.css";
 
@@ -19,11 +17,8 @@ export const metadata: Metadata = {
 };
 
 export default function LaunchPage() {
-  return <main className={styles.page}>
-    <header className={styles.header}>
-      <Link className={styles.brand} href="/" aria-label="FrontierGTM home"><Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority /></Link>
-      <div className={styles.headerLinks}><Link href="/scan">Scan</Link><Link href="/signal">Signal</Link><Link href="/"><ArrowLeft size={15} weight="bold" /> FrontierGTM</Link></div>
-    </header>
+  return <main className={styles.page} id="top">
+    <Header />
     <section className={styles.hero}>
       <div className={styles.trajectory} aria-hidden="true"><span /><span /><span /><i /><b /></div>
       <div className={styles.heroInner}>
