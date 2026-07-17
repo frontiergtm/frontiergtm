@@ -47,6 +47,14 @@ strategic implications, and three concrete GTM actions. Exa is required for live
 Signal research; the Together, Upstash, and optional Resend settings are shared
 with Scan. `TOGETHER_SIGNAL_MODEL` can override the analysis model independently.
 
+## FrontierGTM Launch
+
+The public `/launch` product combines first-party company and product evidence with
+live Exa market research, then uses Together AI structured output to pressure-test
+launch readiness and produce a buyer frame, narrative, claim stack, activation plan,
+launch assets, and 14-day sequence. It reuses Upstash for caching, safeguards, and
+lead capture. `TOGETHER_LAUNCH_MODEL` can override its strategy model independently.
+
 ## Editing content
 
 - Main page entry point: `app/page.tsx`
