@@ -80,6 +80,7 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
   display: flex; align-items: center; justify-content: space-between; margin-top: 7px;
   border-top: 1px solid rgba(255,255,255,.1); padding: 12px 9px 2px; color: #efc35d; font-size: 11px; font-weight: 700;
 }
+.agent-nav-skills { margin-top: 0; border-top: 0; padding-top: 8px; }
 .agent-nav-hub:hover span { transform: translateX(3px); }
 .agent-nav-hub span { transition: transform 160ms ease; }
 .agent-nav-hub-current { background: rgba(239,195,93,.08); }
@@ -224,7 +225,8 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .agent-platform-intro { display: grid; grid-template-columns: 1.12fr .88fr; gap: 88px; align-items: end; }
 .agent-platform-intro h2 { max-width: 650px; margin: 8px 0 0; font-size: 37px; line-height: 1.08; letter-spacing: -.042em; }
 .agent-platform-intro > div:last-child > p { max-width: 520px; margin: 0; color: #cfddd3; font-size: 14px; line-height: 1.75; }
-.agent-platform-intro > div:last-child > a { display: inline-flex; align-items: center; gap: 8px; margin-top: 17px; color: #efc35d; font-size: 12px; font-weight: 700; }
+.agent-platform-links { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 17px; }
+.agent-platform-links a { display: inline-flex; align-items: center; gap: 8px; color: #efc35d; font-size: 12px; font-weight: 700; }
 .agent-product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 42px; }
 .agent-product-card {
   position: relative; display: flex; min-height: 405px; flex-direction: column; border: 1px solid rgba(222,232,225,.25);

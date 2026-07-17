@@ -11,7 +11,7 @@ import { agentNavItems, primaryNavItems } from "@/content/site";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const agentPageActive = pathname === "/agents" || agentNavItems.some((item) => item.href === pathname);
+  const agentPageActive = pathname === "/agents" || pathname === "/skills" || agentNavItems.some((item) => item.href === pathname);
   const desktopAgentMenu = useRef<HTMLDetailsElement>(null);
 
   useEffect(() => {
@@ -61,6 +61,7 @@ export function Header() {
                 </a>
               ))}
               <a className={`agent-nav-hub ${pathname === "/agents" ? "agent-nav-hub-current" : ""}`} href="/agents" aria-current={pathname === "/agents" ? "page" : undefined}>Explore all GTM Agents <span>→</span></a>
+              <a className={`agent-nav-hub agent-nav-skills ${pathname === "/skills" ? "agent-nav-hub-current" : ""}`} href="/skills" aria-current={pathname === "/skills" ? "page" : undefined}>Install Open Skills <span>→</span></a>
             </div>
           </details>
           {primaryNavItems.slice(1).map((item) => (
@@ -110,6 +111,9 @@ export function Header() {
               ))}
               <a className={`mobile-agent-hub ${pathname === "/agents" ? "mobile-agent-current" : ""}`} href="/agents" aria-current={pathname === "/agents" ? "page" : undefined} onClick={() => setOpen(false)}>
                 <strong>Explore all GTM Agents</strong><span>See how the agent system works</span>
+              </a>
+              <a className={`mobile-agent-hub ${pathname === "/skills" ? "mobile-agent-current" : ""}`} href="/skills" aria-current={pathname === "/skills" ? "page" : undefined} onClick={() => setOpen(false)}>
+                <strong>Install Open Skills</strong><span>Use FrontierGTM inside your own agent</span>
               </a>
             </div>
           </details>

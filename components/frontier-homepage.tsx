@@ -222,7 +222,10 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                 <p>
                   Use them independently, bring their findings into a consulting engagement, or have FrontierGTM adapt the underlying workflows to your company.
                 </p>
-                <a href="/agents">Explore the agent platform <ArrowRight size={16} weight="bold" /></a>
+                <div className="agent-platform-links">
+                  <a href="/agents">Explore Web Agents <ArrowRight size={16} weight="bold" /></a>
+                  <a href="/skills">Install Open Skills <ArrowRight size={16} weight="bold" /></a>
+                </div>
               </div>
             </div>
 

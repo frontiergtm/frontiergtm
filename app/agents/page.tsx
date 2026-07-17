@@ -42,6 +42,10 @@ export default function AgentsPage() {
       </div>
     </section>
 
+    <section className={styles.openSkills}>
+      <div className={styles.shell}><div><p>FrontierGTM Open Skills</p><h2>Prefer to work inside your own agent?</h2><span>Install FrontierGTM methods into ChatGPT Work, Codex, Claude, Hermes, and compatible agents—then use them with the files, context, and tools you choose.</span></div><Link href="/skills">Explore and install Open Skills <ArrowRight size={16} weight="bold" /></Link></div>
+    </section>
+
     <section className={styles.operatingModel}>
       <div className={styles.shell}>
         <div className={styles.operatingIntro}><p>How the platform works</p><h2>Start with an agent. Keep the human judgment.</h2><span>The agents create a useful first layer of research and strategy. FrontierGTM consulting turns that work into decisions, assets, execution, and repeatable systems.</span></div>

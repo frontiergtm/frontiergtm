@@ -55,6 +55,15 @@ launch readiness and produce a buyer frame, narrative, claim stack, activation p
 launch assets, and 14-day sequence. It reuses Upstash for caching, safeguards, and
 lead capture. `TOGETHER_LAUNCH_MODEL` can override its strategy model independently.
 
+## FrontierGTM Open Skills
+
+The public `/skills` page presents the installable FrontierGTM skill collection and
+links to its separate public source repository:
+[ryanpollock/frontiergtm-skills](https://github.com/ryanpollock/frontiergtm-skills).
+The private website repository contains only the product presentation and skill
+metadata; the portable Agent Skills, plugin manifests, references, license, and
+installation documentation live in the public repository.
+
 ## Editing content
 
 - Main page entry point: `app/page.tsx`
