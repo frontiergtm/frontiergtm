@@ -3,7 +3,7 @@ import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { agentProducts } from "@/content/site";
 import styles from "./agent-suite-footer.module.css";
 
-export function AgentSuiteFooter({ current }: { current: "Scan" | "Signal" | "Launch" }) {
+export function AgentSuiteFooter({ current }: { current: "Scan" | "Signal" | "Launch" | "Deal" }) {
   return <section className={styles.section} id="agent-suite" aria-labelledby="agent-suite-heading">
     <div className={styles.shell}>
       <div className={styles.intro}>

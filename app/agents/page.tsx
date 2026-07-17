@@ -8,7 +8,7 @@ import styles from "./agents.module.css";
 
 export const metadata: Metadata = {
   title: "FrontierGTM Agents | Specialized AI agents for GTM work",
-  description: "Use FrontierGTM Agents for positioning diagnosis, market intelligence, and launch strategy—independently or as part of a FrontierGTM consulting engagement.",
+  description: "Use FrontierGTM Agents for positioning diagnosis, market intelligence, launch strategy, and deal preparation—independently or as part of a FrontierGTM consulting engagement.",
   alternates: { canonical: "https://www.frontiergtm.ai/agents" },
 };
 
@@ -28,7 +28,7 @@ export default function AgentsPage() {
 
     <section className={styles.agents}>
       <div className={styles.shell}>
-        <div className={styles.sectionIntro}><p>Choose the question in front of you</p><h2>Three focused agents. One connected GTM system.</h2></div>
+        <div className={styles.sectionIntro}><p>Choose the question in front of you</p><h2>Four focused agents. One connected GTM system.</h2></div>
         <div className={styles.agentGrid}>
           {agentProducts.map((agent) => <Link href={agent.href} className={styles.agentCard} key={agent.name}>
             <div><span>{agent.number}</span><Icon name={agent.icon as IconName} size={32} weight="light" /></div>

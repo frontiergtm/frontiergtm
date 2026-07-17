@@ -227,7 +227,7 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .agent-platform-intro > div:last-child > p { max-width: 520px; margin: 0; color: #cfddd3; font-size: 14px; line-height: 1.75; }
 .agent-platform-links { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 17px; }
 .agent-platform-links a { display: inline-flex; align-items: center; gap: 8px; color: #efc35d; font-size: 12px; font-weight: 700; }
-.agent-product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 42px; }
+.agent-product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 42px; }
 .agent-product-card {
   position: relative; display: flex; min-height: 405px; flex-direction: column; border: 1px solid rgba(222,232,225,.25);
   border-radius: 8px; background: rgba(7,29,21,.42); padding: 25px 25px 22px; transition: transform 180ms ease,border-color 180ms ease,background 180ms ease;
