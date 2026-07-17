@@ -1,6 +1,6 @@
 export const primaryNavItems = [
   { label: "Consulting", href: "/#services" },
-  { label: "Who I Help", href: "/#audience" },
+  { label: "Agent Builds", href: "/agent-builds" },
   { label: "About", href: "/#about" },
 ];
 
@@ -8,6 +8,36 @@ export const agentNavItems = [
   { label: "Scan", description: "Diagnose your public GTM story", href: "/scan" },
   { label: "Signal", description: "Find market changes worth acting on", href: "/signal" },
   { label: "Launch", description: "Build an evidence-grounded launch strategy", href: "/launch" },
+];
+
+export const agentProducts = [
+  {
+    name: "Scan",
+    href: "/scan",
+    number: "01",
+    question: "How does the market see us?",
+    description: "An outside-in diagnosis of your positioning, buyer clarity, proof, and conversion path.",
+    outcome: "Find the three GTM moves with the most leverage.",
+    icon: "compass",
+  },
+  {
+    name: "Signal",
+    href: "/signal",
+    number: "02",
+    question: "What changed—and what should we do?",
+    description: "A source-backed brief on recent market, category, and competitor developments.",
+    outcome: "Turn external change into concrete executive action.",
+    icon: "nodes",
+  },
+  {
+    name: "Launch",
+    href: "/launch",
+    number: "03",
+    question: "How do we create market movement?",
+    description: "An evidence-grounded launch thesis, narrative, claim stack, and activation sequence.",
+    outcome: "Move from announcement to coordinated GTM action.",
+    icon: "rocket",
+  },
 ];
 
 export const services = [
@@ -42,10 +72,10 @@ export const services = [
       "Plan and execute product launches, partner announcements, customer stories, event campaigns, and category-building moments.",
   },
   {
-    title: "Agents",
+    title: "Agentic GTM Systems",
     icon: "robot",
     description:
-      "Use AI agents and modern workflows to scale research, content production, account intelligence, competitive tracking, and personalized outbound.",
+      "Design specialized agents and workflows for research, market intelligence, content, account strategy, launch execution, and sales enablement.",
   },
 ];
 
@@ -75,11 +105,11 @@ export const engagements = [
       "Senior marketing leadership and execution across content, campaigns, launches, inbound, outbound, and sales enablement.",
   },
   {
-    title: "Agentic Marketing Buildout",
+    title: "Custom Agent System",
     icon: "nodes",
-    eyebrow: "Build + enable",
+    eyebrow: "Design + build",
     description:
-      "Design and implement AI-native workflows for research, content, account intelligence, competitive monitoring, and personalized outreach.",
+      "Design, build, and embed a focused GTM agent around your team’s context, tools, decisions, and operating workflow.",
   },
 ];
 

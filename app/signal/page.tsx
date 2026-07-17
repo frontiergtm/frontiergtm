@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
+import { AgentSuiteFooter } from "@/components/agents/agent-suite-footer";
 import { SignalExperience } from "@/components/signal/signal-experience";
 import styles from "./signal.module.css";
 
@@ -24,7 +25,7 @@ export default function SignalPage() {
       <section className={styles.hero}>
         <div className={styles.radar} aria-hidden="true"><span /><span /><span /><i /></div>
         <div className={styles.heroInner}>
-          <p className={styles.eyebrow}>FrontierGTM Signal · Research beta</p>
+          <p className={styles.eyebrow}>FrontierGTM Agents · Signal · Research beta</p>
           <h1>Know what moved.<br /><em>Know what to do next.</em></h1>
           <p className={styles.heroLead}>A source-backed market move brief for AI executives and operators—recent developments, competitive implications, and three concrete GTM actions.</p>
           <div className={styles.trustRow}><span>Live public research</span><span>Evidence linked</span><span>Built for AI markets</span></div>
@@ -32,6 +33,7 @@ export default function SignalPage() {
       </section>
 
       <SignalExperience />
+      <AgentSuiteFooter current="Signal" />
     </main>
   );
 }

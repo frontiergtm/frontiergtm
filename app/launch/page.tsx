@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
+import { AgentSuiteFooter } from "@/components/agents/agent-suite-footer";
 import { LaunchExperience } from "@/components/launch/launch-experience";
 import styles from "./launch.module.css";
 
@@ -22,12 +23,13 @@ export default function LaunchPage() {
     <section className={styles.hero}>
       <div className={styles.trajectory} aria-hidden="true"><span /><span /><span /><i /><b /></div>
       <div className={styles.heroInner}>
-        <p className={styles.eyebrow}>FrontierGTM Launch · Strategy beta</p>
+        <p className={styles.eyebrow}>FrontierGTM Agents · Launch · Strategy beta</p>
         <h1>Don’t just announce it.<br /><em>Create market movement.</em></h1>
         <p className={styles.heroLead}>Pressure-test the launch, find the strongest credible thesis, and turn public evidence into a narrative and activation plan your GTM team can use.</p>
         <div className={styles.trustRow}><span>Evidence-grounded</span><span>Buyer-specific</span><span>Built for technical AI launches</span></div>
       </div>
     </section>
     <LaunchExperience />
+    <AgentSuiteFooter current="Launch" />
   </main>;
 }

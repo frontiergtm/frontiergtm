@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { ArrowDown, ArrowRight, EnvelopeSimple } from "@phosphor-icons/react/dist/ssr";
+import { ArrowDown, ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { BookCallLink } from "@/components/book-call-link";
 import { Header } from "@/components/header";
 import { Icon, IconName } from "@/components/icons";
 import { MotionEffects } from "@/components/motion-effects";
 import { consultationMailto } from "@/content/contact";
-import { audiences, engagements, proofPoints, services } from "@/content/site";
+import { agentProducts, audiences, engagements, proofPoints, services } from "@/content/site";
 
 const experienceLogos = [
   { name: "Together AI", src: "/logos/together-ai-wordmark.png", className: "employer-logo-together" },
@@ -21,7 +21,7 @@ const pageCopy = {
   capacity: {
     heroEyebrow: "Senior strategy and execution for bold AI builders",
     heroSubhead:
-      "FrontierGTM helps technical founders explain what they do, reach the right buyers, and build AI-native marketing engines.",
+      "FrontierGTM helps technical founders explain what they do, reach the right buyers, and build AI-native GTM systems—through senior consulting, hands-on execution, and specialized agents.",
     problemHeadingStacked: true,
     problemParagraphs: [
       "AI markets move quickly. Product launches, category shifts, pipeline goals, and sales needs keep moving with them.",
@@ -43,7 +43,7 @@ const pageCopy = {
     },
     ctaHeading: ["Ready to move your GTM", "forward?"],
     ctaBody:
-      "Turn complex products into sharper positioning, stronger launches, useful content, and repeatable demand — with senior judgment and hands-on execution from day one.",
+      "Turn complex products into sharper positioning, stronger launches, useful content, and repeatable demand—with senior judgment, hands-on execution, and an agent layer built for the work.",
   },
   "early-startups": {
     heroEyebrow: "The AI gold rush needs a map",
@@ -118,10 +118,10 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                 rel="noopener noreferrer"
                 trackingLocation="hero"
               >
-                Book a Call <ArrowRight size={17} weight="bold" />
+                Work with Ryan <ArrowRight size={17} weight="bold" />
               </BookCallLink>
-              <a className="button button-secondary motion-button-secondary" href="/scan">
-                Run a Free GTM Scan <ArrowRight size={17} />
+              <a className="button button-secondary motion-button-secondary" href="/agents">
+                Explore GTM Agents <ArrowRight size={17} />
               </a>
             </div>
           </div>
@@ -191,8 +191,8 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
           <div className="wide-shell">
             <div className="center-heading motion-reveal">
               <p className="motion-section-kicker">Your route forward</p>
-              <h2>What FrontierGTM Does</h2>
-              <p>Strategy, messaging, content, demand gen, and AI-native execution.</p>
+              <h2>Senior consulting that moves with the market</h2>
+              <p>Human judgment and hands-on execution across the GTM work that matters.</p>
             </div>
             <div className="services-grid">
               {services.map((service, index) => (
@@ -206,6 +206,73 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
                 </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="agent-platform-section" id="gtm-agents" data-section="gtm_agents">
+          <div className="wide-shell">
+            <div className="agent-platform-intro motion-reveal">
+              <div>
+                <p className="motion-section-kicker">The FrontierGTM agent layer</p>
+                <h2>Specialized GTM agents, built into how FrontierGTM works.</h2>
+              </div>
+              <div>
+                <p>
+                  Use them independently, bring their findings into a consulting engagement, or have FrontierGTM adapt the underlying workflows to your company.
+                </p>
+                <a href="/agents">Explore the agent platform <ArrowRight size={16} weight="bold" /></a>
+              </div>
+            </div>
+
+            <div className="agent-product-grid">
+              {agentProducts.map((agent, index) => (
+                <a className="agent-product-card motion-reveal" href={agent.href} key={agent.name} style={{ "--motion-index": index } as React.CSSProperties}>
+                  <div className="agent-product-card-top">
+                    <span>{agent.number}</span>
+                    <Icon name={agent.icon as IconName} size={31} weight="light" />
+                  </div>
+                  <p className="agent-product-label">FrontierGTM {agent.name}</p>
+                  <h3>{agent.question}</h3>
+                  <p>{agent.description}</p>
+                  <strong>{agent.outcome}</strong>
+                  <span className="agent-product-action">Run {agent.name} <ArrowRight size={15} weight="bold" /></span>
+                </a>
+              ))}
+            </div>
+
+            <div className="agent-system-path motion-reveal" aria-label="How FrontierGTM Agents connect to consulting">
+              <span><small>01</small>Use a focused agent</span>
+              <i aria-hidden="true">→</i>
+              <span><small>02</small>Apply the findings with Ryan</span>
+              <i aria-hidden="true">→</i>
+              <span><small>03</small>Build the workflow into your team</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="agent-builds-section" id="agent-builds" data-section="agent_builds">
+          <div className="wide-shell agent-builds-layout">
+            <div className="agent-builds-copy motion-reveal motion-reveal-left">
+              <p className="motion-section-kicker">Custom agent systems</p>
+              <h2>Agents that understand your market, context, and way of working.</h2>
+              <p>
+                FrontierGTM designs focused GTM agents around the decisions your team repeatedly makes—then connects them to the tools and workflows people already use.
+              </p>
+              <div className="agent-builds-actions">
+                <a className="button" href="/agent-builds">Explore Agent Builds <ArrowRight size={16} weight="bold" /></a>
+                <a href="mailto:ryan@frontiergtm.ai?subject=Custom%20FrontierGTM%20Agent">Discuss an agent with Ryan</a>
+              </div>
+            </div>
+            <div className="agent-builds-capabilities motion-reveal motion-reveal-right">
+              {[
+                ["Market intelligence", "Monitor competitors, categories, buyers, and high-signal change."],
+                ["Account intelligence", "Turn public evidence and internal context into useful account briefs."],
+                ["Launch operations", "Coordinate research, narrative, assets, enablement, and follow-through."],
+                ["Content systems", "Move from source material to executive, technical, and field-ready content."],
+              ].map(([title, description], index) => (
+                <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>
               ))}
             </div>
           </div>
@@ -345,10 +412,10 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                 rel="noopener noreferrer"
                 trackingLocation="final_cta"
               >
-                Book a Call <ArrowRight size={17} weight="bold" />
+                Work with Ryan <ArrowRight size={17} weight="bold" />
               </BookCallLink>
-              <a className="button button-secondary motion-button-secondary" href="mailto:ryan@frontiergtm.ai">
-                Send a Note <EnvelopeSimple size={18} />
+              <a className="button button-secondary motion-button-secondary" href="/agents">
+                Explore GTM Agents <ArrowRight size={17} />
               </a>
             </div>
           </div>

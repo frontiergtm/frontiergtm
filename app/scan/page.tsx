@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/header";
+import { AgentSuiteFooter } from "@/components/agents/agent-suite-footer";
 import { ScanExperience } from "@/components/scan/scan-experience";
 import styles from "./scan.module.css";
 
@@ -25,7 +26,7 @@ export default function ScanPage() {
       <section className={styles.hero}>
         <div className={styles.heroGlow} aria-hidden="true" />
         <div className={styles.heroInner}>
-          <p className={styles.eyebrow}>FrontierGTM Scan · Public beta</p>
+          <p className={styles.eyebrow}>FrontierGTM Agents · Scan · Public beta</p>
           <h1>See how your GTM story lands from the outside.</h1>
           <p className={styles.heroLead}>
             Enter your company website. FrontierGTM will examine the public evidence and identify what is clear,
@@ -40,6 +41,7 @@ export default function ScanPage() {
       </section>
 
       <ScanExperience />
+      <AgentSuiteFooter current="Scan" />
     </main>
   );
 }
