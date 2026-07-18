@@ -55,11 +55,20 @@ launch readiness and produce a buyer frame, narrative, claim stack, activation p
 launch assets, and 14-day sequence. It reuses Upstash for caching, safeguards, and
 lead capture. `TOGETHER_LAUNCH_MODEL` can override its strategy model independently.
 
+## FrontierGTM Deal Intelligence
+
+The public `/deal` product researches a seller and target account, builds an
+evidence-grounded opportunity thesis and free preview, then uses Stripe Checkout
+to unlock the complete meeting brief. Exa, Together AI, and Upstash power the
+research and report lifecycle; Stripe payment verification happens server-side
+before the full report is returned. See `.env.example` for the Deal-specific
+model, rate-limit, pricing, site URL, and Stripe settings.
+
 ## FrontierGTM Open Skills
 
 The public `/skills` page presents the installable FrontierGTM skill collection and
 links to its separate public source repository:
-[ryanpollock/frontiergtm-skills](https://github.com/ryanpollock/frontiergtm-skills).
+[frontiergtm/frontiergtm-skills](https://github.com/frontiergtm/frontiergtm-skills).
 The private website repository contains only the product presentation and skill
 metadata; the portable Agent Skills, plugin manifests, references, license, and
 installation documentation live in the public repository.

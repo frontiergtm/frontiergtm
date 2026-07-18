@@ -51,4 +51,4 @@ export const frontierSkills = [
   },
 ] as const;
 
-export const frontierSkillsRepository = "https://github.com/ryanpollock/frontiergtm-skills";
+export const frontierSkillsRepository = "https://github.com/frontiergtm/frontiergtm-skills";
