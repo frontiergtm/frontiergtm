@@ -56,7 +56,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ url: session.url });
   } catch (error) {
     if (error instanceof ZodError) return NextResponse.json({ error: "invalid_request", message: "Enter a valid work email and try again." }, { status: 400 });
-    if (process.env.NODE_ENV !== "production") console.error("Deal checkout failed", error);
+    if (error instanceof Stripe.errors.StripeError) {
+      console.error("Deal checkout failed", { type: error.type, code: error.code, param: error.param, message: error.message });
+    } else {
+      console.error("Deal checkout failed", { message: error instanceof Error ? error.message : "Unknown checkout error" });
+    }
     return NextResponse.json({ error: "checkout_failed", message: "Checkout could not start just now. Please try again." }, { status: 500 });
   }
 }
