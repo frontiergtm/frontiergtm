@@ -31,6 +31,7 @@ export async function POST(request: NextRequest) {
     const origin = safeOrigin(request);
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+      allow_promotion_codes: true,
       customer_email: payload.email,
       client_reference_id: payload.reportId,
       metadata: { reportId: payload.reportId, product: "frontiergtm_deal_intelligence" },
