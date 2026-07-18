@@ -1,8 +1,9 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { ArrowRight, Check, ClipboardText, Crosshair, EnvelopeSimple, LinkSimple, LockKey, MagnifyingGlass, Printer, ShieldCheck, Sparkle, SpinnerGap, Target, UsersThree, WarningCircle } from "@phosphor-icons/react";
+import { ArrowRight, Check, ClipboardText, Crosshair, DownloadSimple, EnvelopeSimple, LinkSimple, LockKey, MagnifyingGlass, Printer, ShieldCheck, Sparkle, SpinnerGap, Target, UsersThree, WarningCircle } from "@phosphor-icons/react";
 import type { DealPreview, DealReport } from "@/lib/deal/schema";
+import { downloadDealPdf } from "@/lib/pdf/agent-report-pdf";
 import styles from "@/app/deal/deal.module.css";
 
 const meetingTypes = ["discovery", "executive", "technical", "renewal", "expansion", "partner", "other"] as const;
@@ -139,7 +140,7 @@ export function DealExperience() {
       </>}
 
       {report && <div className={styles.fullReport}>
-        <div className={styles.reportTools}><span><Check size={14} weight="bold" /> Complete brief unlocked</span><div><button onClick={copyBrief}><ClipboardText size={15} />{copied ? "Copied" : "Copy"}</button><button onClick={() => window.print()}><Printer size={15} />Print</button></div></div>
+        <div className={styles.reportTools}><span><Check size={14} weight="bold" /> Complete brief unlocked</span><div><button onClick={copyBrief}><ClipboardText size={15} />{copied ? "Copied" : "Copy"}</button><button onClick={() => { void downloadDealPdf(report); track("deal_brief_pdf_downloaded"); }}><DownloadSimple size={15} />Download PDF</button><button onClick={() => window.print()}><Printer size={15} />Print</button></div></div>
         <section className={styles.reportSection}><p>01</p><div><p className={styles.stepLabel}>Account motion</p><h2>Triggers and priorities</h2><div className={styles.twoColumns}><div>{report.triggerEvents.map((item) => <article key={item.headline}><small>{item.confidence} confidence</small><h3>{item.headline}</h3><p>{item.whatHappened}</p><strong>{item.commercialImplication}</strong><Sources ids={item.sourceIds} sources={report.sources} /></article>)}</div><div>{report.priorities.map((item) => <article key={item.priority}><small>{item.status}</small><h3>{item.priority}</h3><p>{item.evidence}</p><strong>{item.relevance}</strong><Sources ids={item.sourceIds} sources={report.sources} /></article>)}</div></div></div></section>
         <section className={styles.reportSection}><p>02</p><div><p className={styles.stepLabel}>Opportunity test</p><h2>{report.opportunity.fit} fit—not assumed fit</h2><div className={styles.opportunity}><article><h3>Problem hypothesis</h3><p>{report.opportunity.problemHypothesis}</p><h3>Value hypothesis</h3><p>{report.opportunity.valueHypothesis}</p><strong>{report.opportunity.fitRationale}</strong></article><article><h3>Proof to bring</h3><ul>{report.opportunity.proofToBring.map((item) => <li key={item}><Check size={13} />{item}</li>)}</ul><h3>Proof gaps</h3><ul>{report.opportunity.proofGaps.map((item) => <li key={item}><WarningCircle size={13} />{item}</li>)}</ul></article><article><h3>Non-fit risks</h3><ul>{report.opportunity.nonFitRisks.map((item) => <li key={item}>{item}</li>)}</ul></article></div></div></section>
         <section className={styles.reportSection}><p>03</p><div><p className={styles.stepLabel}>People and politics</p><h2>Buying committee hypotheses</h2><div className={styles.committee}>{report.buyingCommittee.map((item) => <article key={item.role}><UsersThree size={19} /><small>{item.status}</small><h3>{item.role}</h3><p>{item.likelyConcern}</p><strong>{item.message}</strong></article>)}</div></div></section>

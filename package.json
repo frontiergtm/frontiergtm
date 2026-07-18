@@ -13,6 +13,7 @@
     "@fontsource-variable/inter-tight": "^5.2.7",
     "@fontsource-variable/space-grotesk": "^5.2.10",
     "@phosphor-icons/react": "^2.1.10",
+    "jspdf": "^4.2.1",
     "next": "^16.0.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

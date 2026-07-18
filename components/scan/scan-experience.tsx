@@ -6,6 +6,7 @@ import {
   Check,
   CheckCircle,
   ClipboardText,
+  DownloadSimple,
   EnvelopeSimple,
   LinkSimple,
   MagnifyingGlass,
@@ -17,6 +18,7 @@ import {
   WarningCircle,
 } from "@phosphor-icons/react";
 import type { ScanReport } from "@/lib/scan/schema";
+import { downloadScanPdf } from "@/lib/pdf/agent-report-pdf";
 import styles from "@/app/scan/scan.module.css";
 
 declare global {
@@ -292,6 +294,7 @@ export function ScanExperience() {
                 <span>Full report unlocked</span>
                 <div>
                   <button onClick={copyReadout} type="button"><ClipboardText size={16} /> {copied ? "Copied" : "Copy summary"}</button>
+                  <button onClick={() => { void downloadScanPdf(report); track("scan_report_pdf_downloaded"); }} type="button"><DownloadSimple size={16} /> Download PDF</button>
                   <button onClick={() => { window.print(); track("scan_report_printed"); }} type="button"><Printer size={16} /> Print</button>
                 </div>
               </div>
