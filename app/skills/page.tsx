@@ -61,13 +61,13 @@ export default function SkillsPage() {
       <div className={styles.shell}>
         <div className={styles.installIntro}><p>Open and portable</p><h2>Install the whole collection from GitHub.</h2><span>The skills use the open Agent Skills format. They contain readable instructions and references, require no FrontierGTM account or API key, and send no telemetry to FrontierGTM.</span></div>
         <div className={styles.commandCard}>
-          <div><span>Claude Code · Codex · Cursor · compatible agents</span><code>npx skills add ryanpollock/frontiergtm-skills</code></div>
+          <div><span>Claude Code · Codex · Cursor · compatible agents</span><code>npx skills add frontiergtm/frontiergtm-skills</code></div>
           <a href={frontierSkillsRepository} target="_blank" rel="noreferrer"><GithubLogo size={18} /> View source on GitHub</a>
         </div>
         <div className={styles.platformGrid}>
-          <article><h3>ChatGPT Work + Codex</h3><p>The repository includes FrontierGTM plugin packaging and a marketplace definition. Add the GitHub marketplace, then install FrontierGTM directly or from the Plugins browser.</p><code>codex plugin marketplace add ryanpollock/frontiergtm-skills<br />codex plugin add frontiergtm@frontiergtm</code></article>
+          <article><h3>ChatGPT Work + Codex</h3><p>The repository includes FrontierGTM plugin packaging and a marketplace definition. Add the GitHub marketplace, then install FrontierGTM directly or from the Plugins browser.</p><code>codex plugin marketplace add frontiergtm/frontiergtm-skills<br />codex plugin add frontiergtm@frontiergtm</code></article>
           <article><h3>Claude + Claude Code</h3><p>Use the universal installer with Claude Code. The repository also includes Claude-compatible marketplace metadata; individual skill folders can be uploaded to supported Claude Skills surfaces.</p></article>
-          <article><h3>Hermes Agent</h3><p>Add the repository as a tap, then search or install any FrontierGTM skill from the collection.</p><code>hermes skills tap add ryanpollock/frontiergtm-skills</code></article>
+          <article><h3>Hermes Agent</h3><p>Add the repository as a tap, then search or install any FrontierGTM skill from the collection.</p><code>hermes skills tap add frontiergtm/frontiergtm-skills</code></article>
         </div>
         <div className={styles.trust}><LockKeyOpen size={25} /><div><h3>Designed to be inspected</h3><p>No bundled executable scripts. No automatic external actions. No hidden data collection. The installed agent uses only the context and tools the user chooses to provide.</p></div><Check size={22} /></div>
       </div>

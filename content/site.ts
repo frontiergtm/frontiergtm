@@ -8,6 +8,7 @@ export const agentNavItems = [
   { label: "Scan", description: "Diagnose your public GTM story", href: "/scan" },
   { label: "Signal", description: "Find market changes worth acting on", href: "/signal" },
   { label: "Launch", description: "Build an evidence-grounded launch strategy", href: "/launch" },
+  { label: "Deal", description: "Research an account and prepare the meeting", href: "/deal" },
 ];
 
 export const agentProducts = [
@@ -37,6 +38,15 @@ export const agentProducts = [
     description: "An evidence-grounded launch thesis, narrative, claim stack, and activation sequence.",
     outcome: "Move from announcement to coordinated GTM action.",
     icon: "rocket",
+  },
+  {
+    name: "Deal",
+    href: "/deal",
+    number: "04",
+    question: "Why this account—and how do we win the next step?",
+    description: "An evidence-grounded account thesis, opportunity test, buying committee, and meeting plan.",
+    outcome: "Walk into a high-stakes conversation prepared to qualify, not just pitch.",
+    icon: "target",
   },
 ];
 
