@@ -5,6 +5,7 @@ export function BlogFooter() {
     <footer>
       <p>© {new Date().getFullYear()} FrontierGTM</p>
       <div className="footer-links">
+        <a href="/blog/rss.xml">RSS</a>
         <a href="mailto:ryan@frontiergtm.ai">ryan@frontiergtm.ai</a>
         <a
           className="footer-social-link"

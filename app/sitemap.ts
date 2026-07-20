@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getPublishedBlogSlugs } from "@/lib/sanity/posts";
+import { getPublishedBlogSlugsFresh } from "@/lib/sanity/posts";
+
+export const dynamic = "force-dynamic";
 
 const routes = ["", "/agents", "/skills", "/agent-builds", "/scan", "/signal", "/launch", "/deal"];
 
@@ -11,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === "" ? 1 : route === "/agents" || route === "/skills" ? 0.9 : 0.8,
   })) satisfies MetadataRoute.Sitemap;
 
-  const blogSlugs = await getPublishedBlogSlugs();
+  const blogSlugs = await getPublishedBlogSlugsFresh();
   if (!blogSlugs.length) return baseRoutes;
 
   return [

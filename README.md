@@ -80,7 +80,8 @@ includes `Post` and `Author` documents, with drafts, structured long-form conten
 images, publication settings, and search/social metadata. The public `/blog` index
 and `/blog/[slug]` article pages are intentionally absent from site navigation until
 the first post is published. An empty blog is also excluded from search indexing and
-the sitemap automatically.
+the sitemap automatically. Published posts appear without a website deployment, and
+the automatically generated RSS feed is available at `/blog/rss.xml`.
 
 ### Connect a Sanity project
 
