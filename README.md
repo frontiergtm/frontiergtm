@@ -73,6 +73,37 @@ The private website repository contains only the product presentation and skill
 metadata; the portable Agent Skills, plugin manifests, references, license, and
 installation documentation live in the public repository.
 
+## FrontierGTM Blog CMS
+
+The blog uses Sanity Studio and Sanity's hosted Content Lake. The Studio schema
+includes `Post` and `Author` documents, with drafts, structured long-form content,
+images, publication settings, and search/social metadata. The public `/blog` index
+and `/blog/[slug]` article pages are intentionally absent from site navigation until
+the first post is published. An empty blog is also excluded from search indexing and
+the sitemap automatically.
+
+### Connect a Sanity project
+
+1. The repository is connected to the free `FrontierGTM` Sanity project and its
+   public `production` dataset. The public project ID is the checked-in default;
+   environment variables can override it when needed.
+2. In Sanity project settings, create a Viewer token and save it as
+   `SANITY_API_READ_TOKEN`. This token is server-only and must never be committed.
+3. The project already allows `http://127.0.0.1:3000` as a credentialed CORS
+   origin so the Studio Presentation tool can enable draft previews locally.
+
+Run the website and Studio in separate terminals:
+
+```bash
+npm run dev
+npm run studio:dev
+```
+
+The local website runs at `http://127.0.0.1:3000` and the Studio at
+`http://localhost:3333`. Use `npm run studio:build` to validate the editor before
+deploying it through Sanity's managed Studio hosting. The hosted browser editor is
+available at [frontiergtm-blog.sanity.studio](https://frontiergtm-blog.sanity.studio/).
+
 ## Editing content
 
 - Main page entry point: `app/page.tsx`
@@ -84,5 +115,7 @@ installation documentation live in the public repository.
 - Active hero image: `public/frontier-hero-headlands-view-v8.png`
 - Founder headshot: `public/ryan-pollock-headshot.png`
 - Employer marks: `public/logos/`
+- Blog schema and browser editor: `sanity/` and `sanity.config.ts`
+- Blog content queries and preview client: `lib/sanity/`
 
 Replace placeholder `mailto:` and `#contact` links with a calendar or contact destination when ready.
