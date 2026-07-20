@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BlogFooter } from "@/components/blog/blog-footer";
 import { Header } from "@/components/header";
+import { getEditorialArt } from "@/lib/blog/editorial-art";
 import { getPublishedBlogPostsFresh } from "@/lib/sanity/posts";
 import { urlForSanityImage } from "@/lib/sanity/image";
 import type { BlogPost } from "@/lib/sanity/types";
@@ -22,19 +23,33 @@ function postDate(post: BlogPost) {
 
 function PostImage({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
   const className = featured ? styles.featuredImage : styles.cardImage;
-  if (!post.heroImage?.asset) {
-    return <div className={className}><div className={styles.imageFallback}>FrontierGTM</div></div>;
+  if (post.heroImage?.asset) {
+    return (
+      <div className={className}>
+        <Image
+          src={urlForSanityImage(post.heroImage).width(featured ? 1200 : 900).height(featured ? 900 : 506).url()}
+          alt={post.heroImage.alt || ""}
+          fill
+          sizes={featured ? "(max-width: 760px) 100vw, 54vw" : "(max-width: 760px) 100vw, 50vw"}
+          priority={featured}
+        />
+      </div>
+    );
   }
-  return (
+
+  const editorialArt = getEditorialArt(post.slug);
+  return editorialArt ? (
     <div className={className}>
       <Image
-        src={urlForSanityImage(post.heroImage).width(featured ? 1200 : 900).height(featured ? 900 : 506).url()}
-        alt={post.heroImage.alt || ""}
+        src={editorialArt.cardSrc}
+        alt={editorialArt.alt}
         fill
         sizes={featured ? "(max-width: 760px) 100vw, 54vw" : "(max-width: 760px) 100vw, 50vw"}
         priority={featured}
       />
     </div>
+  ) : (
+    <div className={className}><div className={styles.imageFallback}>FrontierGTM</div></div>
   );
 }
 
@@ -46,6 +61,18 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "https://www.frontiergtm.ai/blog",
       types: { "application/rss+xml": "https://www.frontiergtm.ai/blog/rss.xml" },
+    },
+    openGraph: {
+      title: "FrontierGTM Blog | Ideas for the AI frontier",
+      description: "Ideas, arguments, and field notes on taking frontier AI, infrastructure, cloud, and developer technology to market.",
+      url: "https://www.frontiergtm.ai/blog",
+      images: [{ url: "https://www.frontiergtm.ai/blog/infrastructure-frontier-social.jpg", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "FrontierGTM Blog | Ideas for the AI frontier",
+      description: "Ideas, arguments, and field notes on taking frontier AI, infrastructure, cloud, and developer technology to market.",
+      images: ["https://www.frontiergtm.ai/blog/infrastructure-frontier-social.jpg"],
     },
     robots: posts.length ? undefined : { index: false, follow: false },
   };
