@@ -303,21 +303,6 @@
   font-weight: 600;
 }
 
-.articleImage {
-  width: min(calc(100% - 48px), 1120px);
-  margin: 48px auto 0;
-}
-
-.articleImage img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 680px;
-  border-radius: 8px;
-  object-fit: cover;
-  box-shadow: 0 24px 60px rgba(22, 48, 33, 0.14);
-}
-
 .articleMain {
   background: #f8f6ef;
   padding: 66px 0 90px;
@@ -422,7 +407,6 @@
 @media (max-width: 760px) {
   .shell,
   .articleHeroInner,
-  .articleImage,
   .articleBody,
   .articleEnd {
     width: min(calc(100% - 36px), 1120px);
