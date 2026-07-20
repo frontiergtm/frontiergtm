@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { BlogFooter } from "@/components/blog/blog-footer";
 import { Header } from "@/components/header";
-import { getBlogPosts } from "@/lib/sanity/posts";
+import { getPublishedBlogPostsFresh } from "@/lib/sanity/posts";
 import { urlForSanityImage } from "@/lib/sanity/image";
 import type { BlogPost } from "@/lib/sanity/types";
 import styles from "./blog.module.css";
+
+export const dynamic = "force-dynamic";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -37,17 +39,20 @@ function PostImage({ post, featured = false }: { post: BlogPost; featured?: bool
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const posts = await getBlogPosts();
+  const posts = await getPublishedBlogPostsFresh();
   return {
     title: "FrontierGTM Blog | Ideas for the AI frontier",
     description: "Ideas, arguments, and field notes on taking frontier AI, infrastructure, cloud, and developer technology to market.",
-    alternates: { canonical: "https://www.frontiergtm.ai/blog" },
+    alternates: {
+      canonical: "https://www.frontiergtm.ai/blog",
+      types: { "application/rss+xml": "https://www.frontiergtm.ai/blog/rss.xml" },
+    },
     robots: posts.length ? undefined : { index: false, follow: false },
   };
 }
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts();
+  const posts = await getPublishedBlogPostsFresh();
   const featured = posts.find((post) => post.featured) || posts[0];
   const remaining = featured ? posts.filter((post) => post._id !== featured._id) : [];
 

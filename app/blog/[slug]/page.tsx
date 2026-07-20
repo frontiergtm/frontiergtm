@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { BlogFooter } from "@/components/blog/blog-footer";
 import { PortableArticle } from "@/components/blog/portable-article";
 import { Header } from "@/components/header";
 import { urlForSanityImage } from "@/lib/sanity/image";
-import { getBlogPost, getPublishedBlogSlugs } from "@/lib/sanity/posts";
+import { getBlogPost, getPublishedBlogPostFresh, getPublishedBlogSlugsFresh } from "@/lib/sanity/posts";
 import styles from "../blog.module.css";
 
 type PostPageProps = { params: Promise<{ slug: string }> };
+
+export const dynamic = "force-dynamic";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -18,12 +21,12 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 
 export async function generateStaticParams() {
-  return getPublishedBlogSlugs();
+  return getPublishedBlogSlugsFresh();
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = await getBlogPost(slug);
+  const post = await getPublishedBlogPostFresh(slug);
   if (!post) return {};
   const socialImage = post.socialImage?.asset ? post.socialImage : post.heroImage;
   const socialUrl = socialImage?.asset ? urlForSanityImage(socialImage).width(1200).height(630).url() : undefined;
@@ -52,7 +55,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
-  const post = await getBlogPost(slug);
+  const previewEnabled = (await draftMode()).isEnabled;
+  const post = previewEnabled ? await getBlogPost(slug) : await getPublishedBlogPostFresh(slug);
   if (!post) notFound();
 
   const publishedDate = dateFormatter.format(new Date(post.publishedAt));
