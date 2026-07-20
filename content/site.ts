@@ -1,6 +1,7 @@
 export const primaryNavItems = [
   { label: "Consulting", href: "/#services" },
   { label: "Agent Builds", href: "/agent-builds" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/#about" },
 ];
 
