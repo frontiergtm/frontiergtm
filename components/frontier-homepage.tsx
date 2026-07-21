@@ -4,6 +4,7 @@ import { BookCallLink } from "@/components/book-call-link";
 import { Header } from "@/components/header";
 import { Icon, IconName } from "@/components/icons";
 import { MotionEffects } from "@/components/motion-effects";
+import { RotatingGtmFocus } from "@/components/rotating-gtm-focus";
 import { consultationMailto } from "@/content/contact";
 import { agentProducts, audiences, engagements, proofPoints, services } from "@/content/site";
 
@@ -103,10 +104,16 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
         <div className="hero-inner motion-hero-inner">
           <div className="hero-copy motion-hero-copy">
             <p className="motion-hero-eyebrow">{copy.heroEyebrow}</p>
-            <h1 id="motion-hero-title" className="hero-title">
-              <span className="hero-title-line hero-title-lead">GTM strategy for</span>
-              <span className="hero-title-line hero-title-focus">
-                the <span className="hero-title-gold">AI frontier</span>
+            <h1
+              id="motion-hero-title"
+              className="hero-title"
+              aria-label="GTM strategy, engineering, agents, consulting, and execution for the AI frontier"
+            >
+              <span className="hero-title-line hero-title-lead" aria-hidden="true">
+                GTM <RotatingGtmFocus />
+              </span>
+              <span className="hero-title-line hero-title-focus" aria-hidden="true">
+                for the <span className="hero-title-gold">AI frontier</span>
               </span>
             </h1>
             <p className="hero-subhead">{copy.heroSubhead}</p>
