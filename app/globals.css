@@ -120,8 +120,19 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
   font-size: clamp(50px, 5vw, 66px); font-weight: 400;
   line-height: .98; letter-spacing: 0;
 }
-.hero-title-line { display: block; }
+.hero-title-line { display: block; white-space: nowrap; }
 .hero-title-lead { font-size: .92em; font-weight: 400; letter-spacing: 0; }
+.hero-title-rotator {
+  display: inline-grid; position: relative; vertical-align: baseline;
+}
+.hero-title-rotator::before {
+  grid-area: 1 / 1; visibility: hidden; content: "Engineering"; white-space: nowrap;
+}
+.hero-title-word {
+  grid-area: 1 / 1; white-space: nowrap; opacity: 1; filter: blur(0);
+  transform: translateY(0); transition: opacity 240ms ease, filter 240ms ease, transform 240ms ease;
+}
+.hero-title-word.is-changing { opacity: 0; filter: blur(4px); transform: translateY(.18em); }
 .hero-title-focus { margin-top: .04em; font-weight: 400; letter-spacing: 0; }
 .hero-title-gold {
   color: #e0a83b;
@@ -382,7 +393,7 @@ footer p { margin: 0; }
   .wide-shell, .compact-shell, .hero-inner { width: min(100% - 36px, 1180px); }
   .hero { height: 820px; }
   .hero-image { object-position: 13% center; }
-  .hero-title { font-size: clamp(40px, 10.5vw, 44px); line-height: 1.08; }
+  .hero-title { font-size: clamp(32px, 9.8vw, 44px); line-height: 1.08; }
   .hero-title-lead { font-size: .92em; }
   .hero-subhead { max-width: 100%; font-size: 16.5px; line-height: 1.55; }
   .hero-actions, .cta-actions { flex-direction: column; }
