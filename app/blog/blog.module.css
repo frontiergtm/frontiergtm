@@ -53,10 +53,11 @@
 .masthead h1 {
   max-width: 760px;
   margin: 12px 0 0;
-  font-size: clamp(46px, 6.2vw, 78px);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-family: "Rye", Georgia, serif;
+  font-size: clamp(44px, 5.6vw, 72px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
 }
 
 .mastheadDescription {
