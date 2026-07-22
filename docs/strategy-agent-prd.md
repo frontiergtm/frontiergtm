@@ -1,6 +1,6 @@
 # FrontierGTM Strategy — Product Requirements
 
-Status: Version one implemented; production verification in progress
+Status: Version one live and production-verified
 Owner: FrontierGTM
 Last updated: 2026-07-22
 
@@ -334,4 +334,4 @@ Use this section when resuming work.
 - [x] Platform navigation and hierarchy updated
 - [x] Open Strategy skill implemented
 - [x] Local build and product-flow QA complete
-- [ ] GitHub push and Vercel production verification complete
+- [x] GitHub push and Vercel production verification complete
