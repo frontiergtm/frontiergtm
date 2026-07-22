@@ -24,12 +24,19 @@ function postDate(post: BlogPost) {
 function PostImage({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
   const className = featured ? styles.featuredImage : styles.cardImage;
   if (post.heroImage?.asset) {
+    const objectPosition = post.heroImage.hotspot
+      ? `${post.heroImage.hotspot.x * 100}% ${post.heroImage.hotspot.y * 100}%`
+      : featured
+        ? "35% 50%"
+        : "50% 50%";
+
     return (
       <div className={className}>
         <Image
           src={urlForSanityImage(post.heroImage).width(featured ? 1200 : 900).height(featured ? 900 : 506).url()}
           alt={post.heroImage.alt || ""}
           fill
+          style={{ objectPosition }}
           sizes={featured ? "(max-width: 760px) 100vw, 54vw" : "(max-width: 760px) 100vw, 50vw"}
           priority={featured}
         />
