@@ -6,11 +6,20 @@ export const primaryNavItems = [
 ];
 
 export const agentNavItems = [
+  { label: "Strategy", description: "Start here: make the governing GTM choices", href: "/strategy" },
   { label: "Scan", description: "Diagnose your public GTM story", href: "/scan" },
   { label: "Signal", description: "Find market changes worth acting on", href: "/signal" },
   { label: "Launch", description: "Build an evidence-grounded launch strategy", href: "/launch" },
   { label: "Deal", description: "Research an account and prepare the meeting", href: "/deal" },
 ];
+
+export const strategyAgent = {
+  name: "Strategy", href: "/strategy", number: "00",
+  question: "Where will we play—and how will we win?",
+  description: "An evidence-grounded system of choices, assumptions, priorities, non-priorities, and a focused 90-day operating agenda.",
+  outcome: "Set the direction, then route the work into the specialist agents.",
+  icon: "strategy",
+} as const;
 
 export const agentProducts = [
   {

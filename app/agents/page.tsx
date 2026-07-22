@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle, Compass, FlowArrow, Wrench } from "@phosphor-icons/react/dist/ssr";
 import { Header } from "@/components/header";
 import { Icon, type IconName } from "@/components/icons";
-import { agentProducts } from "@/content/site";
+import { agentProducts, strategyAgent } from "@/content/site";
 import styles from "./agents.module.css";
 
 export const metadata: Metadata = {
@@ -28,7 +28,12 @@ export default function AgentsPage() {
 
     <section className={styles.agents}>
       <div className={styles.shell}>
-        <div className={styles.sectionIntro}><p>Choose the question in front of you</p><h2>Four focused agents. One connected GTM system.</h2></div>
+        <div className={styles.sectionIntro}><p>Start with direction</p><h2>One Strategy agent. Four focused operators.</h2></div>
+        <Link href={strategyAgent.href} className={styles.strategyCard}>
+          <div><span>Start here · Governing layer</span><Icon name={strategyAgent.icon as IconName} size={39} weight="light" /></div>
+          <section><small>FrontierGTM Strategy</small><h3>{strategyAgent.question}</h3><p>{strategyAgent.description}</p></section>
+          <aside><strong>{strategyAgent.outcome}</strong><em>Build your strategy <ArrowRight size={16} weight="bold" /></em></aside>
+        </Link>
         <div className={styles.agentGrid}>
           {agentProducts.map((agent) => <Link href={agent.href} className={styles.agentCard} key={agent.name}>
             <div><span>{agent.number}</span><Icon name={agent.icon as IconName} size={32} weight="light" /></div>

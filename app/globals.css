@@ -239,6 +239,8 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .agent-platform-links { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 17px; }
 .agent-platform-links a { display: inline-flex; align-items: center; gap: 8px; color: #efc35d; font-size: 12px; font-weight: 700; }
 .agent-product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 42px; }
+.strategy-product-card { display:grid;grid-template-columns:170px 1fr .7fr;gap:30px;align-items:center;margin-top:42px;border:1px solid rgba(194,238,117,.55);border-radius:9px;background:linear-gradient(105deg,rgba(194,238,117,.1),rgba(7,29,21,.55));padding:27px;color:white;transition:transform .18s ease,border-color .18s ease }
+.strategy-product-card:hover{transform:translateY(-4px);border-color:#c2ee75}.strategy-product-card>div{display:flex;align-items:center;justify-content:space-between;color:#c2ee75}.strategy-product-card>div span{color:#efc35d;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.strategy-product-card section h3{margin:9px 0 0;font-size:28px;letter-spacing:-.04em}.strategy-product-card section>p:last-child{margin:10px 0 0;color:#c9d7ce;font-size:12px;line-height:1.6}.strategy-product-card aside{border-left:1px solid rgba(255,255,255,.14);padding-left:27px}.strategy-product-card aside strong{display:block;color:#e4ece7;font-size:11px;line-height:1.55}.strategy-product-card aside span{display:flex;align-items:center;justify-content:space-between;margin-top:20px;color:#c2ee75;font-size:11px;font-weight:750}
 .agent-product-card {
   position: relative; display: flex; min-height: 405px; flex-direction: column; border: 1px solid rgba(222,232,225,.25);
   border-radius: 8px; background: rgba(7,29,21,.42); padding: 25px 25px 22px; transition: transform 180ms ease,border-color 180ms ease,background 180ms ease;
@@ -712,3 +714,4 @@ footer p { margin: 0; }
   .motion-trail-light::after,
   .motion-trail-image { animation: none !important; opacity: 0 !important; }
 }
+@media(max-width:680px){.strategy-product-card{grid-template-columns:1fr;gap:20px}.strategy-product-card aside{border-top:1px solid rgba(255,255,255,.14);border-left:0;padding-top:18px;padding-left:0}}

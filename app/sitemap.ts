@@ -3,7 +3,7 @@ import { getPublishedBlogSlugsFresh } from "@/lib/sanity/posts";
 
 export const dynamic = "force-dynamic";
 
-const routes = ["", "/agents", "/skills", "/agent-builds", "/scan", "/signal", "/launch", "/deal"];
+const routes = ["", "/agents", "/skills", "/agent-builds", "/strategy", "/scan", "/signal", "/launch", "/deal"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseRoutes = routes.map((route) => ({

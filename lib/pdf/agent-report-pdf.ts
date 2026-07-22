@@ -2,6 +2,7 @@ import type { DealReport } from "@/lib/deal/schema";
 import type { LaunchReport } from "@/lib/launch/schema";
 import type { ScanReport } from "@/lib/scan/schema";
 import type { SignalReport } from "@/lib/signal/schema";
+import type { StrategyReport } from "@/lib/strategy/schema";
 
 type PdfEntry = { title: string; body?: string; meta?: string; bullets?: string[] };
 type PdfSection = { label: string; title: string; intro?: string; entries?: PdfEntry[] };
@@ -229,6 +230,30 @@ export function downloadDealPdf(report: DealReport) {
       { label: "09 Unknowns", title: "Do not leave without learning", entries: [{ title: "Critical unknowns", bullets: report.unknowns }] },
       { label: "10 Follow-up", title: report.followUpEmail.subject, entries: [{ title: "Ready-to-edit email", body: report.followUpEmail.body }] },
       { label: "11 Evidence quality", title: `${titleCase(report.evidenceCoverage.confidence)} confidence`, intro: report.evidenceCoverage.summary, entries: report.evidenceCoverage.limitations.length ? [{ title: "Limitations", bullets: report.evidenceCoverage.limitations }] : [] },
+    ],
+    sources: report.sources.map((source) => ({ id: source.id, title: source.title, url: source.url, detail: `${source.domain} | ${titleCase(source.purpose)}${source.publishedDate ? ` | ${source.publishedDate}` : ""}` })),
+  });
+}
+
+export function downloadStrategyPdf(report: StrategyReport) {
+  const choiceEntries = (items: Array<{ choice: string; rationale: string; status: string; sourceIds: string[] }>) => items.map((item) => ({ title: item.choice, meta: `${titleCase(item.status)} | ${citations(item.sourceIds)}`, body: item.rationale }));
+  const objectChoices = (items: Record<string, { choice: string; rationale: string; status: string; sourceIds: string[] }>) => Object.entries(items).map(([key, item]) => ({ title: titleCase(key), meta: `${titleCase(item.status)} | ${citations(item.sourceIds)}`, body: `${item.choice}\n\n${item.rationale}` }));
+  return downloadPdf({
+    agent: "FrontierGTM Strategy", title: `${report.identity.companyName}: GTM Strategy Brief`, subject: report.identity.companyName, generatedAt: report.generatedAt,
+    meta: [report.identity.category, titleCase(report.identity.stage), `${report.verdict.focusScore}/100 focus`, `${report.verdict.confidence} confidence`], summary: report.executiveStrategy.oneLine,
+    sections: [
+      { label: "01 Executive strategy", title: report.executiveStrategy.oneLine, entries: [{ title: "Governing diagnosis", body: report.executiveStrategy.governingDiagnosis }, { title: "Why now", body: report.executiveStrategy.whyNow }, { title: "Strategy verdict", meta: `${titleCase(report.verdict.verdict)} | ${report.verdict.focusScore}/100 focus`, body: report.verdict.rationale }] },
+      { label: "02 Strategic situation", title: "The realities the strategy must resolve", entries: Object.values(report.situation).map((item) => ({ title: item.title, meta: `${titleCase(item.status)} | ${citations(item.sourceIds)}`, body: `${item.analysis}\n\nImplication: ${item.implication}` })) },
+      { label: "03 Where to play", title: "Choose the market, buyer, and wedge", entries: objectChoices(report.whereToPlay) },
+      { label: "04 How to win", title: "Build a credible path to advantage", entries: objectChoices(report.howToWin) },
+      { label: "05 Commitments", title: "What the company will do now", entries: choiceEntries(report.commitments) },
+      { label: "06 Non-priorities", title: "What the company will deliberately defer", entries: choiceEntries(report.nonPriorities) },
+      { label: "07 Assumption ledger", title: "What must be true", entries: report.assumptions.map((item) => ({ title: item.assumption, meta: `${item.confidence} confidence | ${citations(item.sourceIds)}`, body: `${item.currentEvidence}\n\nTest: ${item.test}` })) },
+      { label: "08 Risk register", title: "Where the strategy can break", entries: report.risks.map((item) => ({ title: item.risk, meta: `${item.severity} severity | ${citations(item.sourceIds)}`, body: `${item.why}\n\nMitigation: ${item.mitigation}` })) },
+      ...report.agenda.map((phase, index) => ({ label: `0${index + 9} 90-day agenda`, title: `${phase.phase} — ${phase.timing}`, intro: phase.objective, entries: phase.actions.map((item) => ({ title: item.action, meta: item.owner, body: `${item.outcome}\n\nCheckpoint: ${item.checkpoint}` })) })),
+      { label: "12 Measurement", title: "Know whether the strategy is working", entries: [{ title: "Leading indicators", bullets: report.measurement.leadingIndicators }, { title: "Business outcomes", bullets: report.measurement.businessOutcomes }, { title: "Conditions that change the strategy", bullets: report.measurement.changeConditions }] },
+      { label: "13 Specialist routes", title: "Continue the work", entries: report.agentRouting.map((item) => ({ title: `FrontierGTM ${item.agent}`, meta: item.priority, body: `${item.why}\n\nQuestion: ${item.question}\n\nExpected decision: ${item.expectedDecision}` })) },
+      { label: "14 Evidence quality", title: `${titleCase(report.evidenceCoverage.confidence)} confidence`, intro: report.evidenceCoverage.summary, entries: report.evidenceCoverage.limitations.length ? [{ title: "Limitations", bullets: report.evidenceCoverage.limitations }] : [] },
     ],
     sources: report.sources.map((source) => ({ id: source.id, title: source.title, url: source.url, detail: `${source.domain} | ${titleCase(source.purpose)}${source.publishedDate ? ` | ${source.publishedDate}` : ""}` })),
   });

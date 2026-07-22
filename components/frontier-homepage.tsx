@@ -6,7 +6,7 @@ import { Icon, IconName } from "@/components/icons";
 import { MotionEffects } from "@/components/motion-effects";
 import { RotatingGtmFocus } from "@/components/rotating-gtm-focus";
 import { consultationMailto } from "@/content/contact";
-import { agentProducts, audiences, engagements, proofPoints, services } from "@/content/site";
+import { agentProducts, audiences, engagements, proofPoints, services, strategyAgent } from "@/content/site";
 
 const experienceLogos = [
   { name: "Together AI", src: "/logos/together-ai-wordmark.png", className: "employer-logo-together" },
@@ -223,7 +223,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             <div className="agent-platform-intro motion-reveal">
               <div>
                 <p className="motion-section-kicker">The FrontierGTM agent layer</p>
-                <h2>Specialized GTM agents, built into how FrontierGTM works.</h2>
+                <h2>One strategy system. Four specialized agents.</h2>
               </div>
               <div>
                 <p>
@@ -236,6 +236,11 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               </div>
             </div>
 
+            <a className="strategy-product-card motion-reveal" href={strategyAgent.href}>
+              <div><span>Start here</span><Icon name={strategyAgent.icon as IconName} size={36} weight="light" /></div>
+              <section><p className="agent-product-label">FrontierGTM Strategy</p><h3>{strategyAgent.question}</h3><p>{strategyAgent.description}</p></section>
+              <aside><strong>{strategyAgent.outcome}</strong><span>Build your strategy <ArrowRight size={15} weight="bold" /></span></aside>
+            </a>
             <div className="agent-product-grid">
               {agentProducts.map((agent, index) => (
                 <a className="agent-product-card motion-reveal" href={agent.href} key={agent.name} style={{ "--motion-index": index } as React.CSSProperties}>

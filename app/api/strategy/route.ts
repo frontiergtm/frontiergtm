@@ -1,0 +1,12 @@
+import { NextRequest, NextResponse } from "next/server";
+import { ZodError } from "zod";
+import { analyzeStrategy } from "@/lib/strategy/analyze";
+import { StrategyError } from "@/lib/strategy/errors";
+import { researchStrategy } from "@/lib/strategy/research";
+import { strategyRequestSchema } from "@/lib/strategy/schema";
+import { checkStrategyRate, getStrategyReport, getStrategyReportId, previewStrategy, storeStrategyReport, strategyConfigured, strategyRequestKey } from "@/lib/strategy/storage";
+
+export const runtime = "nodejs";
+export const maxDuration = 120;
+function clientIdentifier(request: NextRequest) { return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || "unknown"; }
+export async function POST(request: NextRequest) { try { if (!strategyConfigured()) throw new StrategyError("strategy_unconfigured", "FrontierGTM Strategy is awaiting its public configuration.", 503); const payload = strategyRequestSchema.parse(await request.json()); if (payload.website) return NextResponse.json({ error: "invalid_request", message: "Invalid request." }, { status: 400 }); const key = strategyRequestKey(payload); const existing = await getStrategyReportId(key); if (existing) { const report = await getStrategyReport(existing); if (report) return NextResponse.json(previewStrategy(existing, report), { headers: { "cache-control": "private, no-store" } }); } const rate = await checkStrategyRate(clientIdentifier(request)); if (!rate.allowed) throw new StrategyError("rate_limited", "You have reached the rolling 24-hour Strategy limit. Please try again later.", 429); const research = await researchStrategy(payload); const report = await analyzeStrategy(payload, research.canonicalUrl, research.sources); const reportId = await storeStrategyReport(key, report); return NextResponse.json(previewStrategy(reportId, report), { headers: { "cache-control": "private, no-store", "x-strategy-rate-remaining": String(rate.remaining) } }); } catch (error) { if (error instanceof StrategyError) return NextResponse.json({ error: error.code, message: error.message }, { status: error.status }); if (error instanceof ZodError) return NextResponse.json({ error: "invalid_request", message: "Check the company, objective, buyer, offer, and constraint, then try again." }, { status: 400 }); return NextResponse.json({ error: "strategy_failed", message: "FrontierGTM Strategy could not complete this brief. Please try again." }, { status: 500 }); } }

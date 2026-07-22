@@ -1,5 +1,15 @@
 export const frontierSkills = [
   {
+    name: "Strategy",
+    slug: "frontiergtm-strategy",
+    number: "00",
+    question: "Where will we play—and how will we win?",
+    description: "Turn company context and evidence into explicit choices, non-priorities, assumptions, measures, and a focused 90-day operating agenda.",
+    outcome: "A governing GTM strategy and clear routes into specialist work.",
+    type: "GTM strategy",
+    icon: "strategy",
+  },
+  {
     name: "Scan",
     slug: "frontiergtm-scan",
     number: "01",
