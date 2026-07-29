@@ -9,12 +9,6 @@ declare global {
       eventName: string,
       eventParams?: Record<string, string | number | boolean>,
     ) => void;
-    HubSpotConversations?: {
-      widget: {
-        open: () => void;
-      };
-    };
-    hsConversationsOnReady?: Array<() => void>;
   }
 }
 
@@ -38,18 +32,7 @@ export function BookCallLink({ children, href, onClick, trackingLocation, ...pro
     }
 
     event.preventDefault();
-
-    const openChat = () => window.HubSpotConversations?.widget.open();
-
-    if (window.HubSpotConversations) {
-      openChat();
-      return;
-    }
-
-    window.hsConversationsOnReady = [
-      ...(window.hsConversationsOnReady ?? []),
-      openChat,
-    ];
+    window.dispatchEvent(new CustomEvent("frontiergtm:open-lead-form"));
   };
 
   return (
