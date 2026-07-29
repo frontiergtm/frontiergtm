@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { HubSpotLeadModal } from "@/components/hubspot-lead-modal";
 import "./globals.css";
+import "./lead-form-modal.css";
 
 export const metadata: Metadata = {
   title: "FrontierGTM | GTM strategy for the AI frontier",
@@ -26,11 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `,
           }}
         />
-        <Script
-          id="hs-script-loader"
-          src="https://js-na2.hs-scripts.com/246863187.js"
-          strategy="afterInteractive"
-        />
+        <HubSpotLeadModal />
         {children}
       </body>
     </html>
