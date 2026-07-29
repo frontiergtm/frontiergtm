@@ -26,6 +26,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             `,
           }}
         />
+        <Script
+          id="hs-script-loader"
+          src="https://js-na2.hs-scripts.com/246863187.js"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>

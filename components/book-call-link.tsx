@@ -9,6 +9,12 @@ declare global {
       eventName: string,
       eventParams?: Record<string, string | number | boolean>,
     ) => void;
+    HubSpotConversations?: {
+      widget: {
+        open: () => void;
+      };
+    };
+    hsConversationsOnReady?: Array<() => void>;
   }
 }
 
@@ -26,6 +32,24 @@ export function BookCallLink({ children, href, onClick, trackingLocation, ...pro
     });
 
     onClick?.(event);
+
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const openChat = () => window.HubSpotConversations?.widget.open();
+
+    if (window.HubSpotConversations) {
+      openChat();
+      return;
+    }
+
+    window.hsConversationsOnReady = [
+      ...(window.hsConversationsOnReady ?? []),
+      openChat,
+    ];
   };
 
   return (
