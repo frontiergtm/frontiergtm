@@ -99,11 +99,11 @@ export function HubSpotLeadModal() {
           </button>
 
           <aside className="lead-form-intro">
-            <p className="lead-form-kicker">Work with Ryan</p>
+            <p className="lead-form-kicker">Request a consultation</p>
             <h2 id="lead-form-title">Let’s find the highest-leverage next move.</h2>
             <p>
-              Share a little about your company and GTM challenge. Ryan will review the
-              context personally before following up.
+              Share a little about your company and GTM challenge. FrontierGTM will
+              review the context before following up.
             </p>
             <div className="lead-form-direct">
               <span>Prefer a direct route?</span>

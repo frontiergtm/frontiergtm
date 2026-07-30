@@ -366,7 +366,7 @@ export function ScanExperience() {
                 </div>
                 <div className={styles.commercialOptions}>
                   <a className={styles.auditOption} href={auditHref} onClick={() => track("scan_audit_interest", { target_fit: report.company.targetFit })}><span>Founding beta · $495</span><strong>Human-reviewed Narrative & Market Audit</strong><small>Deeper research, annotated messaging critique, 30-day action plan, and a 30-minute readout.</small><ArrowRight size={17} weight="bold" /></a>
-                  <a className={styles.consultOption} href={`mailto:ryan@frontiergtm.ai?subject=${encodeURIComponent(`GTM working session for ${report.company.name}`)}`} onClick={() => track("scan_consultation_interest", { target_fit: report.company.targetFit })}><EnvelopeSimple size={19} /><strong>Discuss the scan with Ryan</strong><span>Start a consulting conversation</span></a>
+                  <a className={styles.consultOption} href={`mailto:ryan@frontiergtm.ai?subject=${encodeURIComponent(`GTM working session for ${report.company.name}`)}`} onClick={() => track("scan_consultation_interest", { target_fit: report.company.targetFit })}><EnvelopeSimple size={19} /><strong>Request a GTM consultation</strong><span>Bring the scan into a FrontierGTM working session</span></a>
                 </div>
               </section>
 

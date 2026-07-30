@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "payment_required", message: "We could not verify payment for this report." }, { status: 402 });
     }
     const report = await getDealReport(payload.reportId);
-    if (!report) return NextResponse.json({ error: "report_expired", message: "The paid brief has expired from temporary storage. Contact Ryan and we will restore it." }, { status: 410 });
+    if (!report) return NextResponse.json({ error: "report_expired", message: "The paid brief has expired from temporary storage. Contact FrontierGTM and we will restore it." }, { status: 410 });
     await storeDealPurchase({
       reportId: payload.reportId,
       checkoutSessionId: session.id,

@@ -20,7 +20,7 @@ export function AgentSuiteFooter({ current }: { current: "Strategy" | "Scan" | "
       </div>
       <div className={styles.consulting}>
         <div><p>Bring the work into the room</p><h3>Need judgment, refinement, or execution beyond the first brief?</h3></div>
-        <a href={`mailto:ryan@frontiergtm.ai?subject=${encodeURIComponent(`FrontierGTM ${current} — work with Ryan`)}`}>Work through it with Ryan <ArrowRight size={15} weight="bold" /></a>
+        <a href={`mailto:ryan@frontiergtm.ai?subject=${encodeURIComponent(`FrontierGTM ${current} consultation`)}`}>Request a consultation <ArrowRight size={15} weight="bold" /></a>
         <Link href="/agent-builds">Build an agent for your team</Link>
       </div>
     </div>

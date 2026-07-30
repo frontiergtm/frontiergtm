@@ -76,7 +76,7 @@ export function Header() {
           rel="noopener noreferrer"
           trackingLocation="header"
         >
-          Work with Ryan
+          Request a consultation
         </BookCallLink>
 
         <button
@@ -136,7 +136,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             trackingLocation="mobile_nav"
           >
-            Work with Ryan
+            Request a consultation
           </BookCallLink>
         </nav>
       </div>

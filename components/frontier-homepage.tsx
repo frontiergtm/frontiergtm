@@ -125,7 +125,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                 rel="noopener noreferrer"
                 trackingLocation="hero"
               >
-                Work with Ryan <ArrowRight size={17} weight="bold" />
+                Request a consultation <ArrowRight size={17} weight="bold" />
               </BookCallLink>
               <a className="button button-secondary motion-button-secondary" href="/agents">
                 Explore GTM Agents <ArrowRight size={17} />
@@ -260,7 +260,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             <div className="agent-system-path motion-reveal" aria-label="How FrontierGTM Agents connect to consulting">
               <span><small>01</small>Use a focused agent</span>
               <i aria-hidden="true">→</i>
-              <span><small>02</small>Apply the findings with Ryan</span>
+              <span><small>02</small>Apply the findings with FrontierGTM</span>
               <i aria-hidden="true">→</i>
               <span><small>03</small>Build the workflow into your team</span>
             </div>
@@ -277,7 +277,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
               </p>
               <div className="agent-builds-actions">
                 <a className="button" href="/agent-builds">Explore Agent Builds <ArrowRight size={16} weight="bold" /></a>
-                <a href="mailto:ryan@frontiergtm.ai?subject=Custom%20FrontierGTM%20Agent">Discuss an agent with Ryan</a>
+                <a href="mailto:ryan@frontiergtm.ai?subject=Custom%20FrontierGTM%20Agent">Request an Agent Build consultation</a>
               </div>
             </div>
             <div className="agent-builds-capabilities motion-reveal motion-reveal-right">
@@ -427,7 +427,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
                 rel="noopener noreferrer"
                 trackingLocation="final_cta"
               >
-                Work with Ryan <ArrowRight size={17} weight="bold" />
+                Request a consultation <ArrowRight size={17} weight="bold" />
               </BookCallLink>
               <a className="button button-secondary motion-button-secondary" href="/agents">
                 Explore GTM Agents <ArrowRight size={17} />

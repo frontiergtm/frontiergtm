@@ -19,7 +19,7 @@ function safeOrigin(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    if (!dealCheckoutConfigured()) return NextResponse.json({ error: "checkout_unconfigured", message: "Paid briefs are not open yet. Email Ryan for founding access." }, { status: 503 });
+    if (!dealCheckoutConfigured()) return NextResponse.json({ error: "checkout_unconfigured", message: "Paid briefs are not open yet. Contact FrontierGTM for founding access." }, { status: 503 });
     const payload = dealCheckoutSchema.parse(await request.json());
     if (payload.website) return NextResponse.json({ error: "invalid_request", message: "Invalid request." }, { status: 400 });
     const rate = await checkDealRate(clientIdentifier(request), 8, "checkout");

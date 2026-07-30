@@ -29,7 +29,7 @@ export default function AgentBuildsPage() {
         <h1>Build GTM agents around the way your team actually works.</h1>
         <div className={styles.heroBottom}>
           <p>Forward-deployed GTM does not end with advice. FrontierGTM builds focused agents, workflows, and operating infrastructure around the way your team actually works.</p>
-          <a href={contactHref}>Discuss an agent with Ryan <ArrowRight size={17} weight="bold" /></a>
+          <a href={contactHref}>Request an Agent Build consultation <ArrowRight size={17} weight="bold" /></a>
         </div>
       </div>
     </section>
