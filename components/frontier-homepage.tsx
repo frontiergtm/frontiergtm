@@ -20,9 +20,9 @@ export type HomepageVariant = "capacity" | "early-startups";
 
 const pageCopy = {
   capacity: {
-    heroEyebrow: "Senior strategy and execution for bold AI builders",
+    heroEyebrow: "Forward-deployed GTM for bold AI builders",
     heroSubhead:
-      "FrontierGTM helps technical founders explain what they do, reach the right buyers, and build AI-native GTM systems—through senior consulting, hands-on execution, and specialized agents.",
+      "FrontierGTM embeds senior GTM judgment directly into the work—sharpening the strategy, shipping the execution, and building the agents and systems that help your team keep moving.",
     problemHeadingStacked: true,
     problemParagraphs: [
       "AI markets move quickly. Product launches, category shifts, pipeline goals, and sales needs keep moving with them.",
@@ -197,9 +197,9 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
         <section className="services-section motion-services" id="services" data-section="services">
           <div className="wide-shell">
             <div className="center-heading motion-reveal">
-              <p className="motion-section-kicker">Your route forward</p>
-              <h2>Senior consulting that moves with the market</h2>
-              <p>Human judgment and hands-on execution across the GTM work that matters.</p>
+              <p className="motion-section-kicker">Forward-deployed by design</p>
+              <h2>Senior GTM judgment, embedded in the work</h2>
+              <p>FrontierGTM works alongside founders and teams inside the real strategy, launch, campaign, sales motion, and operating systems—not from the sidelines.</p>
             </div>
             <div className="services-grid">
               {services.map((service, index) => (

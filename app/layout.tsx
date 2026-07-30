@@ -7,7 +7,7 @@ import "./lead-form-modal.css";
 export const metadata: Metadata = {
   title: "FrontierGTM | GTM strategy for the AI frontier",
   description:
-    "Senior GTM strategy and execution for AI agent, infrastructure, and developer platform companies.",
+    "Forward-deployed GTM strategy, execution, and agent systems for AI agent, infrastructure, and developer platform companies.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

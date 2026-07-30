@@ -120,7 +120,7 @@ export const engagements = [
   {
     title: "Fractional Marketing Lead",
     icon: "users",
-    eyebrow: "Ongoing",
+    eyebrow: "Ongoing · Forward-deployed",
     description:
       "Senior marketing leadership and execution across content, campaigns, launches, inbound, outbound, and sales enablement.",
   },

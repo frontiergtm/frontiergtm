@@ -6,7 +6,7 @@ import styles from "./agent-builds.module.css";
 
 export const metadata: Metadata = {
   title: "Custom GTM Agent Builds | FrontierGTM",
-  description: "FrontierGTM designs focused AI agents and workflows for market intelligence, account strategy, launches, content, and sales enablement.",
+  description: "Forward-deployed GTM agent systems for market intelligence, account strategy, launches, content, and sales enablement.",
   alternates: { canonical: "https://www.frontiergtm.ai/agent-builds" },
 };
 
@@ -28,7 +28,7 @@ export default function AgentBuildsPage() {
         <p>FrontierGTM Agent Builds</p>
         <h1>Build GTM agents around the way your team actually works.</h1>
         <div className={styles.heroBottom}>
-          <p>Focused agent systems for AI infrastructure, agent, cloud, data, and developer-platform companies—designed with senior GTM judgment and embedded into real operating workflows.</p>
+          <p>Forward-deployed GTM does not end with advice. FrontierGTM builds focused agents, workflows, and operating infrastructure around the way your team actually works.</p>
           <a href={contactHref}>Discuss an agent with Ryan <ArrowRight size={17} weight="bold" /></a>
         </div>
       </div>
