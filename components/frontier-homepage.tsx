@@ -88,15 +88,17 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             priority
             sizes="100vw"
           />
-          <div className="motion-trail-light" aria-hidden="true">
-            <Image
-              className="motion-trail-image"
-              src="/frontier-hero-trail-overlay-v8.png"
-              alt=""
-              fill
-              sizes="100vw"
-            />
-          </div>
+          <video
+            className="hero-video motion-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="/frontier-hero-headlands-view-v8.png"
+          >
+            <source src="/videos/golden-bridge-shovel-strike-hero.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="hero-scrim motion-hero-scrim" />
         <div className="hero-glow motion-hero-glow" aria-hidden="true" />
