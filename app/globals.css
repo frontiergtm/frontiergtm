@@ -182,7 +182,7 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
 .employer-logo-digitalocean img { width: auto; max-width: 160px; max-height: 28px; }
 .employer-logo-google img { max-width: 148px; }
 .employer-logo-oracle img { max-width: 124px; max-height: 25px; }
-.employer-logo-vultr img { max-width: 126px; }
+.employer-logo-jotspot img { max-width: 132px; max-height: 29px; }
 
 .button {
   display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 9px;

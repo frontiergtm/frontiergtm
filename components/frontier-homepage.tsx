@@ -13,7 +13,7 @@ const experienceLogos = [
   { name: "Google Cloud", src: "/logos/google-cloud.svg", className: "employer-logo-google" },
   { name: "DigitalOcean", src: "/logos/digitalocean-wordmark.png", className: "employer-logo-digitalocean" },
   { name: "Oracle", src: "/logos/oracle.svg", className: "employer-logo-oracle" },
-  { name: "Vultr", src: "/logos/vultr.svg", className: "employer-logo-vultr" },
+  { name: "JotSpot", src: "/logos/jotspot-wordmark.png", className: "employer-logo-jotspot" },
 ];
 
 export type HomepageVariant = "capacity" | "early-startups";
@@ -145,7 +145,7 @@ export function FrontierHomepage({ variant = "capacity" }: { variant?: HomepageV
             <p id="motion-employer-title" className="employer-band-label">
               From Ryan Pollock, the pioneering marketer behind
             </p>
-            <div className="employer-logo-row" aria-label="Career experience at Together AI, Google Cloud, DigitalOcean, Oracle, and Vultr">
+            <div className="employer-logo-row" aria-label="Career experience at Together AI, Google Cloud, DigitalOcean, Oracle, and JotSpot">
               {experienceLogos.map((logo, index) => (
                 <div
                   className={`employer-logo motion-logo ${logo.className}`}
