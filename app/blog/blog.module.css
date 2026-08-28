@@ -97,8 +97,15 @@
 
 .featuredImage img,
 .cardImage img {
-  object-fit: cover;
   transition: transform 300ms ease;
+}
+
+.featuredImage img {
+  object-fit: contain;
+}
+
+.cardImage img {
+  object-fit: cover;
 }
 
 .featuredCard:hover img,

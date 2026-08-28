@@ -33,10 +33,14 @@ function PostImage({ post, featured = false }: { post: BlogPost; featured?: bool
     return (
       <div className={className}>
         <Image
-          src={urlForSanityImage(post.heroImage).width(featured ? 1200 : 900).height(featured ? 900 : 506).url()}
+          src={
+            featured
+              ? urlForSanityImage(post.heroImage.asset).width(1200).url()
+              : urlForSanityImage(post.heroImage).width(900).height(506).url()
+          }
           alt={post.heroImage.alt || ""}
           fill
-          style={{ objectPosition }}
+          style={featured ? undefined : { objectPosition }}
           sizes={featured ? "(max-width: 760px) 100vw, 54vw" : "(max-width: 760px) 100vw, 50vw"}
           priority={featured}
         />
