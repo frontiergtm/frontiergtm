@@ -23,6 +23,27 @@ function postDate(post: BlogPost) {
 
 function PostImage({ post, featured = false }: { post: BlogPost; featured?: boolean }) {
   const className = featured ? styles.featuredImage : styles.cardImage;
+  const customHeroSrc = post.slug === "coding-agents-lead-technology-buying-committee"
+    ? "/blog/coding-agents-buying-committee.png"
+    : null;
+
+  if (customHeroSrc) {
+    const objectPosition = featured ? undefined : { objectPosition: "50% 50%" };
+
+    return (
+      <div className={className}>
+        <Image
+          src={customHeroSrc}
+          alt={post.heroImage?.alt || "Coding agents now lead the technology buying committee"}
+          fill
+          style={objectPosition}
+          sizes={featured ? "(max-width: 760px) 100vw, 54vw" : "(max-width: 760px) 100vw, 50vw"}
+          priority={featured}
+        />
+      </div>
+    );
+  }
+
   if (post.heroImage?.asset) {
     const objectPosition = post.heroImage.hotspot
       ? `${post.heroImage.hotspot.x * 100}% ${post.heroImage.hotspot.y * 100}%`
