@@ -93,6 +93,7 @@
 
 .featuredImage {
   min-height: 430px;
+  background: #0b241b;
 }
 
 .featuredImage img,
