@@ -373,9 +373,8 @@
 }
 
 .articleBody figure {
-  width: min(100vw - 48px, 960px);
-  margin: 3em 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  margin: 3em 0;
 }
 
 .articleBody figure img {
@@ -475,9 +474,5 @@
   .articleBody blockquote {
     padding-left: 20px;
     font-size: 20px;
-  }
-
-  .articleBody figure {
-    width: calc(100vw - 36px);
   }
 }

@@ -10,6 +10,15 @@ type ArticleLinkProps = {
   value?: { href?: string; blank?: boolean };
 };
 
+const fallbackImageDimensions = { width: 1440, height: 900 };
+
+function imageDimensions(value: SanityImage) {
+  const match = value.asset?._ref.match(/-(\d+)x(\d+)-/);
+  if (!match) return fallbackImageDimensions;
+
+  return { width: Number(match[1]), height: Number(match[2]) };
+}
+
 const components: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p>{children}</p>,
@@ -36,14 +45,17 @@ const components: PortableTextComponents = {
   types: {
     image: ({ value }: ArticleImageProps) => {
       if (!value?.asset) return null;
+      const dimensions = imageDimensions(value);
+      const requestedWidth = Math.min(dimensions.width, 1440);
+
       return (
         <figure>
           <Image
-            src={urlForSanityImage(value).width(1440).height(900).url()}
+            src={urlForSanityImage(value).width(requestedWidth).url()}
             alt={value.alt || ""}
-            width={1440}
-            height={900}
-            sizes="(max-width: 900px) 100vw, 780px"
+            width={dimensions.width}
+            height={dimensions.height}
+            sizes="(max-width: 760px) calc(100vw - 36px), 760px"
           />
           {value.caption ? <figcaption>{value.caption}</figcaption> : null}
         </figure>
