@@ -91,7 +91,7 @@ export default function RushPage() {
             </p>
             <div className="hero-actions">
               <a className="button button-gold" href="#apply">
-                Apply for FrontierGTM Rush <ArrowRight aria-hidden="true" />
+                Join the Rush <ArrowRight aria-hidden="true" />
               </a>
               <a className="text-link" href="#program">See how it works <ArrowDown aria-hidden="true" /></a>
             </div>
