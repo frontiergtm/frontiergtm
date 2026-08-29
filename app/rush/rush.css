@@ -47,6 +47,7 @@ svg { flex: 0 0 auto; }
 .hero-lede { max-width: 690px; margin: 1.65rem 0 0; color: rgba(255,255,255,.78); font-size: 1.12rem; line-height: 1.65; }
 .hero-actions { display: flex; align-items: center; gap: 1.4rem; margin-top: 2rem; }
 .button { min-height: 50px; padding: .8rem 1.15rem; transition: transform .2s ease, background .2s ease; }
+.hero-actions .button { min-height: 56px; padding: .95rem 1.45rem; font-size: 1.02rem; }
 .button:hover { transform: translateY(-2px); }
 .button-gold { color: var(--ink); background: var(--gold); box-shadow: 0 12px 32px rgba(255,206,82,.18); }
 .button-gold:hover { background: #ffdc6f; }
