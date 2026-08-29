@@ -80,7 +80,7 @@ export default function RushPage() {
 
         <div className="site-shell hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow"><Sparkles aria-hidden="true" /> FrontierGTM Rush Fall 2026 · Applications&nbsp;open</p>
+            <p className="eyebrow"><Sparkles aria-hidden="true" /> FrontierGTM Rush Fall 2026 * Applications Open</p>
             <h1 id="rush-title">
               Bring a hard GTM problem.
               <span>Let&apos;s solve it in a rush.</span>
