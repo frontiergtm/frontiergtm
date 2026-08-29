@@ -60,7 +60,7 @@ export default function RushPage() {
 
       <header className="rush-header">
         <div className="site-shell header-inner">
-          <Link className="brand" href="https://www.frontiergtm.ai/" aria-label="FrontierGTM home">
+          <Link className="brand" href="/" aria-label="FrontierGTM home">
             <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority />
           </Link>
           <nav aria-label="Rush page navigation">
@@ -238,7 +238,7 @@ export default function RushPage() {
 
       <footer>
         <div className="site-shell footer-inner">
-          <Link className="brand footer-brand" href="https://www.frontiergtm.ai/" aria-label="FrontierGTM home">
+          <Link className="brand footer-brand" href="/" aria-label="FrontierGTM home">
             <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} />
           </Link>
           <p>Forward-deployed GTM for bold AI builders.</p>
