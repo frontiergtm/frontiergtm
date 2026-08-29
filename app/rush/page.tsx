@@ -20,11 +20,11 @@ import './rush.css';
 export const metadata: Metadata = {
   title: 'FrontierGTM Rush | Free Hands-On GTM Consulting for Frontier AI',
   description:
-    'Apply for the Fall 2026 Frontier AI Cohort: up to three hours of hands-on GTM consulting and up to $500 in AI token usage, free of charge.',
+    'Apply for FrontierGTM Rush Fall 2026: up to three hours of hands-on GTM consulting and up to $500 in AI token usage, free of charge.',
   alternates: { canonical: 'https://www.frontiergtm.ai/rush' },
   openGraph: {
     title: 'FrontierGTM Rush | Bring a hard GTM problem',
-    description: 'Apply for the Fall 2026 Frontier AI Cohort and receive up to three hours of hands-on GTM consulting, free.',
+    description: 'Apply for FrontierGTM Rush Fall 2026 and receive up to three hours of hands-on GTM consulting, free.',
     type: 'website',
     url: 'https://www.frontiergtm.ai/rush',
     images: [{ url: '/frontiergtm-rush-social-preview.png', width: 1200, height: 630, alt: 'FrontierGTM Rush — Bring a hard GTM problem' }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'FrontierGTM Rush | Bring a hard GTM problem',
-    description: 'Apply for the Fall 2026 Frontier AI Cohort and receive up to three hours of hands-on GTM consulting, free.',
+    description: 'Apply for FrontierGTM Rush Fall 2026 and receive up to three hours of hands-on GTM consulting, free.',
     images: ['/frontiergtm-rush-social-preview.png'],
   },
 };
@@ -80,14 +80,14 @@ export default function RushPage() {
 
         <div className="site-shell hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow"><Sparkles aria-hidden="true" /> Fall 2026 · Applications open</p>
+            <p className="eyebrow"><Sparkles aria-hidden="true" /> FrontierGTM Rush Fall 2026 · Applications open</p>
             <h1 id="rush-title">
               Bring a hard GTM problem.
               <span>Let&apos;s solve it in a rush.</span>
             </h1>
             <p className="hero-lede">
-              FrontierGTM is selecting a small inaugural cohort of frontier AI companies for up to
-              three hours of hands-on GTM consulting—plus up to $500 in AI token usage—free of charge.
+              FrontierGTM Rush is a focused, hands-on program for a small inaugural cohort of frontier AI
+              companies, offering up to three hours of GTM consulting—plus up to $500 in AI token usage—free of charge.
             </p>
             <div className="hero-actions">
               <a className="button button-gold" href="#apply">
@@ -223,7 +223,7 @@ export default function RushPage() {
               <h2 id="apply-title">What could we get done in three focused hours?</h2>
               <p>Tell us what you are building, the GTM problem, why it matters now, and what a useful outcome would look like.</p>
               <div className="apply-details">
-                <span>Fall 2026</span><span>Small inaugural cohort</span><span>Free for selected companies</span>
+                <span>FrontierGTM Rush Fall 2026</span><span>Small inaugural cohort</span><span>Free for selected companies</span>
               </div>
             </div>
             <div className="form-card">
