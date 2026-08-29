@@ -5,6 +5,7 @@ import "./globals.css";
 import "./lead-form-modal.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.frontiergtm.ai"),
   title: "FrontierGTM | GTM strategy for the AI frontier",
   description:
     "Forward-deployed GTM strategy, execution, and agent systems for AI agent, infrastructure, and developer platform companies.",

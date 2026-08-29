@@ -16,7 +16,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+html { scroll-behavior: smooth; scroll-padding-top: 118px; }
 body {
   margin: 0;
   background: #173d2d;
@@ -49,6 +49,17 @@ a, button { outline-offset: 4px; -webkit-tap-highlight-color: transparent; }
   display: block; width: 100%; height: auto;
   filter: drop-shadow(0 3px 8px rgba(5,24,17,.3));
 }
+
+.rush-announcement {
+  display: flex; height: 38px; align-items: center; justify-content: center; gap: 17px;
+  border-bottom: 1px solid rgba(15,45,33,.22); background: linear-gradient(90deg,#efc35d,#d9a536 55%,#efc35d);
+  padding: 0 20px; color: #0b241b; font-size: 11px; line-height: 1.2; letter-spacing: -.006em;
+}
+.rush-announcement > span:first-child { font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.rush-announcement strong { font-weight: 700; }
+.rush-announcement-action { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; }
+.rush-announcement:hover .rush-announcement-action svg { transform: translateX(3px); }
+.rush-announcement-action svg { transition: transform 180ms ease; }
 
 .nav-link {
   position: relative; color: rgba(255,255,255,.9); font-size: 15px; font-weight: 500; letter-spacing: -.012em;
@@ -395,6 +406,10 @@ footer p { margin: 0; }
 }
 
 @media (max-width: 720px) {
+  .rush-announcement { height: 38px; justify-content: space-between; gap: 8px; padding: 0 14px; }
+  .rush-announcement > span:first-child { display: none; }
+  .rush-announcement strong { max-width: 230px; overflow: hidden; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+  .rush-announcement-action { font-size: 10px; white-space: nowrap; }
   .brand-wordmark { width: 190px; }
   .wide-shell, .compact-shell, .hero-inner { width: min(100% - 36px, 1180px); }
   .hero { height: 820px; }

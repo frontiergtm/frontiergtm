@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { CaretDown, List, X } from "@phosphor-icons/react";
+import { ArrowRight, CaretDown, List, X } from "@phosphor-icons/react";
 import { BookCallLink } from "@/components/book-call-link";
 import { consultationMailto } from "@/content/contact";
 import { agentNavItems, primaryNavItems } from "@/content/site";
@@ -43,6 +43,11 @@ export function Header() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 border-b border-white/10">
+      <a className="rush-announcement" href="/rush">
+        <span>Applications open · Fall 2026</span>
+        <strong>FrontierGTM Rush: free hands-on GTM consulting for frontier AI companies</strong>
+        <span className="rush-announcement-action">Apply now <ArrowRight size={14} weight="bold" /></span>
+      </a>
       <div className="mx-auto flex h-20 max-w-[1180px] items-center justify-between px-5 sm:px-6">
         <a className="brand-wordmark" href="/" aria-label="FrontierGTM home">
           <Image src="/frontiergtm-logo-header-transparent.png" alt="FrontierGTM" width={1636} height={429} priority />
@@ -91,7 +96,7 @@ export function Header() {
       </div>
 
       <div
-        className={`fixed inset-x-0 top-20 bottom-0 bg-ink/98 px-5 pt-10 backdrop-blur-xl transition duration-300 lg:hidden ${
+        className={`fixed inset-x-0 top-[118px] bottom-0 bg-ink/98 px-5 pt-10 backdrop-blur-xl transition duration-300 lg:hidden ${
           open ? "visible translate-y-0 opacity-100" : "invisible -translate-y-4 opacity-0"
         }`}
       >
