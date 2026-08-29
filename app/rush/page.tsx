@@ -220,7 +220,7 @@ export default function RushPage() {
           <div className="site-shell apply-grid">
             <div className="apply-copy">
               <p className="section-kicker">Applications are open</p>
-              <h2 id="apply-title">What could we accomplish in three focused hours?</h2>
+              <h2 id="apply-title">What could we get done in three focused hours?</h2>
               <p>Tell us what you are building, the GTM problem, why it matters now, and what a useful outcome would look like.</p>
               <div className="apply-details">
                 <span>Fall 2026</span><span>Small inaugural cohort</span><span>Free for selected companies</span>
