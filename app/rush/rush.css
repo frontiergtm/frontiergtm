@@ -35,7 +35,7 @@ body:has(.rush-page) { margin: 0; background: var(--cream); color: var(--ink); f
 .rush-page .rush-hero { min-height: 760px; position: relative; display: flex; align-items: center; color: white; padding: 145px 0 78px; background: var(--ink); }
 .rush-page .hero-media, .rush-page .hero-scrim { position: absolute; inset: 0; }
 .rush-page .hero-media img { object-fit: cover; object-position: center; transform: scale(1.02); }
-.rush-page .hero-scrim { background: linear-gradient(90deg, rgba(4,20,14,.87) 0%, rgba(4,20,14,.78) 45%, rgba(4,20,14,.45) 73%, rgba(4,20,14,.58) 100%), linear-gradient(0deg, rgba(4,20,14,.55) 0%, transparent 45%); }
+.rush-page .hero-scrim { background: linear-gradient(90deg, rgba(4,20,14,.82) 0%, rgba(4,20,14,.72) 45%, rgba(4,20,14,.4) 73%, rgba(4,20,14,.52) 100%), linear-gradient(0deg, rgba(4,20,14,.48) 0%, transparent 45%); }
 .rush-page .hero-trail { position: absolute; width: 54%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,206,82,.65), transparent); right: -8%; bottom: 17%; transform: rotate(-8deg); box-shadow: 0 0 24px rgba(255,206,82,.48); }
 .rush-page .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0,1.55fr) minmax(280px,.65fr); align-items: end; gap: 5rem; }
 .rush-page .hero-copy { max-width: 790px; }
