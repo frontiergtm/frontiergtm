@@ -383,6 +383,14 @@
   padding-left: 1.4em;
 }
 
+.articleBody ul {
+  list-style: disc;
+}
+
+.articleBody ol {
+  list-style: decimal;
+}
+
 .articleBody li {
   margin: 0.45em 0;
   padding-left: 0.25em;
